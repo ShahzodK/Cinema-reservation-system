@@ -1,12 +1,6 @@
 .white-background{
 	-fx-background-color : #fff;
 }
-.transparent-button:hover{
-	-fx-background-color: transparent;
-}
-.transparent-button:selected{
-	-fx-background-color: transparent;
-}
 .dark-blue-background{
 	-fx-background-color : #16213E;
 }
@@ -16,21 +10,11 @@
 	-fx-border-radius: 50;
 	-fx-border-width: 2;
 }
-.sign-up-button-dark:hover{
-	-fx-background-radius: 50;
-	-fx-background-color: #16213E;
-	-fx-text-fill: #fff;
-}
 .sign-up-button-light{
 	-fx-background-color: transparent;
 	-fx-border-color: #fff;
 	-fx-border-radius: 50;
 	-fx-border-width: 2;
-}
-.sign-up-button-light:hover{
-	-fx-background-radius: 50;
-	-fx-background-color: #fff;
-	-fx-text-fill: #16213E;
 }
 .sign-up-text-field{
 	-fx-background-color: transparent;

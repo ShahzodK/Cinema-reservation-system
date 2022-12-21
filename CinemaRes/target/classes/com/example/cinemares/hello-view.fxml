@@ -2,7 +2,6 @@
 
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
@@ -44,48 +43,23 @@
                                 </ImageView>
                             </children>
                         </HBox>
-                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                     <children>
+                                <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="71.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@img/icons8-профиль-кошки-96.png" />
+                                    </image>
+                                </ImageView>
+                     </children></Pane>
                         <HBox alignment="CENTER" prefHeight="60.0" prefWidth="318.0">
-                            <children>
-                        <MenuButton alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="transparent" stylesheets="@css/styles.css" textAlignment="CENTER">
+                     <children>
+                        <MenuButton mnemonicParsing="false" text="MenuButton">
                           <items>
-                            <MenuItem>
-                                 <graphic>
-                                    <Button mnemonicParsing="false" stylesheets="@css/styles.css" text="Accaunt">
-                                       <styleClass>
-                                          <String fx:value="transparent" />
-                                          <String fx:value="transparent-button" />
-                                       </styleClass></Button>
-                                 </graphic>
-                              </MenuItem>
-                              <MenuItem mnemonicParsing="false">
-                                 <graphic>
-                                    <Button mnemonicParsing="false" stylesheets="@css/styles.css" text="Settings">
-                                       <styleClass>
-                                          <String fx:value="transparent" />
-                                          <String fx:value="transparent-button" />
-                                       </styleClass></Button>
-                                 </graphic>
-                              </MenuItem>
-                              <MenuItem mnemonicParsing="false">
-                                 <graphic>
-                                    <Button mnemonicParsing="false" stylesheets="@css/styles.css" text="Exit">
-                                       <styleClass>
-                                          <String fx:value="transparent" />
-                                          <String fx:value="transparent-button" />
-                                       </styleClass></Button>
-                                 </graphic>
-                              </MenuItem>
+                            <MenuItem mnemonicParsing="false" text="Action 1" />
+                            <MenuItem fx:id="exitButton" mnemonicParsing="false" onAction="#exitButtonOnAction" text="quit" />
                           </items>
-                           <graphic>
-                                      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                          <image>
-                                              <Image url="@img/icons8-профиль-кошки-96.png" />
-                                          </image>
-                                      </ImageView>
-                           </graphic>
                         </MenuButton>
-                            </children>
+                     </children>
                         </HBox>
                     </children>
                     <padding>

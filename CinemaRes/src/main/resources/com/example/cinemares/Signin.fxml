@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cinemares.Registration">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cinemares.SignIn">
     <children>
         <HBox alignment="CENTER" prefHeight="800.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -25,7 +25,7 @@
                                 <Font size="15.0" />
                             </font>
                         </Label>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="sign-up-button-dark" stylesheets="@css/styles.css" text="Register" textAlignment="JUSTIFY" textFill="#16213e">
+                        <Button fx:id="registerButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#registerButtonOnAction" styleClass="sign-up-button-dark" stylesheets="@css/styles.css" text="Register" textAlignment="JUSTIFY" textFill="#16213e">
                             <font>
                                 <Font size="25.0" />
                             </font>
@@ -39,22 +39,22 @@
                                 <Font name="System Bold" size="40.0" />
                             </font>
                         </Label>
-                        <TextField alignment="CENTER" focusTraversable="false" maxWidth="250.0" promptText="Username or E-mail" styleClass="sign-up-text-field" stylesheets="@css/styles.css">
+                        <TextField fx:id="usernameText" alignment="CENTER" focusTraversable="false" maxWidth="250.0" promptText="Username or E-mail" styleClass="sign-up-text-field" stylesheets="@css/styles.css">
                             <padding>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </padding>
                         </TextField>
-                        <TextField alignment="CENTER" focusTraversable="false" maxWidth="250.0" promptText="Password" styleClass="sign-up-text-field" stylesheets="@css/styles.css">
+                        <TextField fx:id="passwordText" alignment="CENTER" focusTraversable="false" maxWidth="250.0" promptText="Password" styleClass="sign-up-text-field" stylesheets="@css/styles.css">
                             <padding>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </padding>
                         </TextField>
-                        <Label alignment="CENTER" prefHeight="30.0" prefWidth="342.0" text="Already have an account?" textAlignment="CENTER" textFill="#e4e4e4">
+                        <Label fx:id="signinLabel" alignment="CENTER" prefHeight="30.0" prefWidth="342.0" text="Already have an account?" textAlignment="CENTER" textFill="#e4e4e4">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Label>
-                        <Button alignment="CENTER" contentDisplay="CENTER" minWidth="250.0" mnemonicParsing="false" styleClass="sign-up-button-light" stylesheets="@css/styles.css" text="Sign In" textAlignment="JUSTIFY" textFill="WHITE">
+                        <Button fx:id="signinButton" alignment="CENTER" contentDisplay="CENTER" minWidth="250.0" mnemonicParsing="false" onAction="#loginButtonOnAction" styleClass="sign-up-button-light" stylesheets="@css/styles.css" text="Sign In" textAlignment="JUSTIFY" textFill="WHITE">
                             <font>
                                 <Font size="18.0" />
                             </font>
