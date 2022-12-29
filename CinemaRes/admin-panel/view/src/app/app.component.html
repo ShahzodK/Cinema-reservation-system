@@ -1,0 +1,7 @@
+<header>Admin panel</header>
+<div class="movies-list">
+  <h2>Movies List</h2>
+  <ul *ngFor="let movie of moviesService.movies | async">
+    <li><app-movie-item [movie]="movie"></app-movie-item></li>
+  </ul>
+</div>
