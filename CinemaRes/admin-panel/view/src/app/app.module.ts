@@ -11,7 +11,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 import { AppComponent } from './app.component';
-import { MovieItemComponent } from './components/movie-item/movie-item.component';
 import { MovieModalComponent } from './components/movie-modal/movie-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -19,7 +18,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    MovieItemComponent,
     MovieModalComponent
   ],
   imports: [

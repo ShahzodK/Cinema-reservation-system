@@ -10,10 +10,9 @@ app.use(bodyParser.json())
 // CORS
 const corsOptions = {
    origin:'*',
-   methods: ["PUT"],
 }
 
-// app.use(cors()) // Use this after the variable declaration
+app.use(cors(corsOptions)) // Use this after the variable declaration
 
 // MySQL
 
@@ -99,20 +98,27 @@ app.post('', (req, res) => {
 })
 
 // Update a record / movies
-app.put('', (req, res) => {
+app.put('/:id', (req, res) => {
     pool.getConnection ((err, connection) => {
         if(err) throw err
         console.log(`connected as id ${connection.threadId}`)
 
-        const { id, name, description, genre, price } = req.body
+        const { id, name, description, genre, img, price } = req.body
 
-        connection.query('UPDATE movies SET name = ?, description = ?, genre = ?, price = ? WHERE id = ? ', [name, description,
-        genre, price, id], (err, rows) => {
+        connection.query('UPDATE movies SET name = ?, description = ?, genre = ?, img = ?, price = ? WHERE id = ? ', [name, description,
+        genre, img, price, id], (err, rows) => {
             connection.release() // return the connection to pool
 
+
                 if(!err) {
-                    res.send(`Movie with the name: ${name} has been added.`)
-                } else {
+                    connection.query('SELECT * from movies', (err, rows) => {
+                        if(!err) {
+                            res.send(rows)
+                        } else {
+                            console.log(err)
+                        }
+                    })
+                    } else {
                     console.log(err)
                 }
 

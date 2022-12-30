@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IMovie } from './../models/movie.model';
-import { Observable } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,15 +9,14 @@ import { Observable } from 'rxjs';
 export class MoviesService {
 
   public host = 'http://localhost:5000/';
-  
-  public movies: Observable<IMovie[]>;
 
-  constructor(private http: HttpClient) { 
-    this.movies = this.http.get<IMovie[]>(this.host);
-  }
+  public movies$: Observable<IMovie[]> = this.http.get<IMovie[]>(this.host);
 
-  public getMovies() {
-    this.movies = this.http.get<IMovie[]>(this.host);
+  constructor(private http: HttpClient) {}
+
+  public updateMovies(movie: IMovie) {
+    // should changed
+    this.movies$ =  this.http.put<IMovie[]>(`${this.host}${movie.id}`, movie); 
   }
 
 
