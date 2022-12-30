@@ -1,18 +1,19 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const mysql = require('mysql')
+const cors = require("cors");
 const app = express()
 const port = process.env.PORT || 5000
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 // CORS
-const cors = require("cors");
 const corsOptions = {
-   origin:'*', 
+   origin:'*',
+   methods: ["PUT"],
 }
 
-app.use(cors(corsOptions)) // Use this after the variable declaration
+// app.use(cors()) // Use this after the variable declaration
 
 // MySQL
 
@@ -24,8 +25,9 @@ const pool = mysql.createPool({
     database : 'movies'
 })
 
-    // get all movies
+// get all movies
 app.get('', (req, res) => {
+    console.log('getted')
     pool.getConnection ((err, connection) => {
         if(err) throw err
         console.log(`connected as id ${connection.threadId}`)
@@ -59,7 +61,7 @@ app.get('/:id', (req, res) => {
             })
         })
     
-    // Delete a records beer
+    // Delete a records movie
 app.delete('/:id', (req, res) => {
     pool.getConnection ((err, connection) => {
         if(err) throw err
@@ -99,18 +101,17 @@ app.post('', (req, res) => {
 // Update a record / movies
 app.put('', (req, res) => {
     pool.getConnection ((err, connection) => {
-
         if(err) throw err
-        console.log('connected as id ${connection.threadId}')
+        console.log(`connected as id ${connection.threadId}`)
 
         const { id, name, description, genre, price } = req.body
 
-        connection.query('UPDATE beers SET name = ?, description = ?, genre = ?, price WHERE id = ?', [name, description,
+        connection.query('UPDATE movies SET name = ?, description = ?, genre = ?, price = ? WHERE id = ? ', [name, description,
         genre, price, id], (err, rows) => {
             connection.release() // return the connection to pool
 
                 if(!err) {
-                    res.send(`Beer with the name: ${name} has been added.`)
+                    res.send(`Movie with the name: ${name} has been added.`)
                 } else {
                     console.log(err)
                 }
