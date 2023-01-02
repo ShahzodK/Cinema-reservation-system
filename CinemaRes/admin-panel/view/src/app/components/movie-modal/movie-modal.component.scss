@@ -2,3 +2,18 @@ form {
   display: flex;
   flex-direction: column;
 }
+
+.modal {
+  &-wrapper {
+    position: relative;
+  }
+  &-close-button {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 18px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+  }
+}
