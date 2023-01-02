@@ -1,8 +1,10 @@
 <div class="modal-wrapper">
-  <button class="modal-close-button" (click)="dialogRef.close()">&#10006;</button>
-  <form [formGroup]="movieForm" (ngSubmit)="onSubmit()" #modalForm="ngForm">
+  <header>
+    <button class="modal-close-button" (click)="dialogRef.close()">&#10006;</button>
     <h3 *ngIf="data.isNew; else updateMovieHeading"> Create Movie</h3>
     <ng-template #updateMovieHeading><h3> Update Movie</h3></ng-template>
+  </header>
+    <form [formGroup]="movieForm" (ngSubmit)="onSubmit()" #modalForm="ngForm">
     <mat-form-field>
       <mat-label for="name">Name</mat-label>
       <input id="name" type="text" formControlName="name" matInput>

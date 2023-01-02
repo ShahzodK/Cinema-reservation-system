@@ -13,12 +13,14 @@ import { MatInputModule } from '@angular/material/input';
 import { AppComponent } from './app.component';
 import { MovieModalComponent } from './components/movie-modal/movie-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MovieModalComponent
+    MovieModalComponent,
+    ConfirmationModalComponent
   ],
   imports: [
     CommonModule,

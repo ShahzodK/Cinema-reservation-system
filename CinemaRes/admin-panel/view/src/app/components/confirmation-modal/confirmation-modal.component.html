@@ -1,0 +1,10 @@
+<div class="modal-wrapper">
+  <header>
+    <button class="modal-close-button" (click)="dialogRef.close()">&#10006;</button>
+    <h3>Are you sure you want to delete this movie?</h3>
+  </header>
+  <footer>
+    <button mat-raised-button (click)="dialogRef.close()">Cancel</button>
+    <button mat-raised-button color="warn" (click)="deleteMovie()">Yes</button>
+  </footer>
+</div>

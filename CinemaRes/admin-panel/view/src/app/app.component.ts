@@ -1,3 +1,4 @@
+import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MoviesService } from './services/movies.service';
@@ -18,10 +19,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.moviesService.getMovies();
-
   }
 
-  public displayedColumns = ['name', 'image', 'genre', 'description', 'price', 'update'];
+  public displayedColumns = ['name', 'image', 'genre', 'description', 'price', 'update', 'delete'];
   public clickedRows = new Set<IMovie>();
 
   public showModal(isNew: boolean, movie?: IMovie) {
@@ -46,4 +46,11 @@ export class AppComponent implements OnInit {
     }
   }
 
+  public showConfirmationModal(id: string) {
+    const dialogRef = this.dialog.open(ConfirmationModalComponent, {
+      data: {
+        id
+      }
+    })
+  }
 }

@@ -26,4 +26,8 @@ export class MoviesService {
     return this.http.put<IMovie[]>(`${this.host}${movie.id}`, movie);
   }
 
+  public deleteMovie(id: string) {
+    return this.http.delete(`${this.host}${id}`);
+  }
+
 }

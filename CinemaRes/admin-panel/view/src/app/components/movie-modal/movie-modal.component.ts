@@ -18,7 +18,7 @@ export class MovieModalComponent {
   constructor(
     public dialogRef: MatDialogRef<MovieModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IMovie & {isNew: string},
-    private movieService: MoviesService
+    private movieService: MoviesService,
     ) {}
 
   public movieForm = new FormGroup({
@@ -30,7 +30,6 @@ export class MovieModalComponent {
   })
 
   public onSubmit() {
-    console.log(this.data)
     const movieData: IMovie = {
       id: this.data.id ,
       name: this.movieForm.getRawValue().name!,
