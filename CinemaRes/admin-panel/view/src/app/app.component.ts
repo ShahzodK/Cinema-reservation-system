@@ -17,11 +17,8 @@ export class AppComponent implements OnInit {
               ) {}
 
   ngOnInit(): void {
-    // this.moviesService.getMovies().subscribe((x) => {
-    //   setInterval(() => console.log(x), 1000);
-      
-    // })
-    
+    this.moviesService.getMovies();
+
   }
 
   public displayedColumns = ['name', 'image', 'genre', 'description', 'price', 'update'];

@@ -10,14 +10,16 @@ export class MoviesService {
 
   public host = 'http://localhost:5000/';
 
-  public movies$: Observable<IMovie[]> = this.http.get<IMovie[]>(this.host);
+  public movies: IMovie[] = [];
 
   constructor(private http: HttpClient) {}
 
-  public updateMovies(movie: IMovie) {
-    // should changed
-    this.movies$ =  this.http.put<IMovie[]>(`${this.host}${movie.id}`, movie); 
+  public getMovies() {
+    return this.http.get<IMovie[]>(this.host).subscribe((movies) => this.movies = movies)
   }
 
+  public updateMovies(movie: IMovie): Observable<IMovie[]> {
+    return this.http.put<IMovie[]>(`${this.host}${movie.id}`, movie);
+  }
 
 }

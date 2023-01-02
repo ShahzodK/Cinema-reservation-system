@@ -38,7 +38,7 @@ export class MovieModalComponent {
       img: this.movieForm.getRawValue().img!,
       price: this.movieForm.getRawValue().price!,
     }
-    this.movieService.updateMovies(movieData);
+    this.movieService.updateMovies(movieData).subscribe(() => this.movieService.getMovies());
     this.dialogRef.close([]);
   }
 

@@ -1,7 +1,7 @@
 <header>Admin panel</header>
 <div class="movies-list">
   <h2>Movies List</h2>
-  <table mat-table [dataSource]="(moviesService.movies$ | async)! ">
+  <table mat-table [dataSource]="moviesService.movies! ">
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Name </th>
         <td mat-cell *matCellDef="let movie"> {{this.movie?.name}} </td>
