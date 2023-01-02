@@ -24,18 +24,26 @@ export class AppComponent implements OnInit {
   public displayedColumns = ['name', 'image', 'genre', 'description', 'price', 'update'];
   public clickedRows = new Set<IMovie>();
 
-  public showModal(movie: IMovie) {
-    const dialogRef = this.dialog.open(MovieModalComponent, {
-      data: {
-        isNew: false,
-        id: movie?.id,
-        name: movie?.name,
-        genre: movie?.genre,
-        description: movie?.description,
-        img: movie?.img,
-        price: movie?.price,
-      }
-    })
+  public showModal(isNew: boolean, movie?: IMovie) {
+    if(!isNew) {
+      const dialogRef = this.dialog.open(MovieModalComponent, {
+        data: {
+          isNew: false,
+          id: movie?.id,
+          name: movie?.name,
+          genre: movie?.genre,
+          description: movie?.description,
+          img: movie?.img,
+          price: movie?.price,
+        }
+      })
+    } else {
+      const dialogRef = this.dialog.open(MovieModalComponent, {
+        data: {
+          isNew: true
+        }
+      })
+    }
   }
 
 }

@@ -87,7 +87,6 @@ app.post('', (req, res) => {
         connection.query('INSERT INTO movies SET ?', params, (err, rows) => {
             connection.release() // return the connection to pool
             if(!err) {
-                res.send(`Movie with the name: ${params.name} has been added.`)
             } else {
                 console.log(err)
             }

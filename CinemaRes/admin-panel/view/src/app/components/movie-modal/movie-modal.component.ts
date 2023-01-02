@@ -30,13 +30,18 @@ export class MovieModalComponent {
   })
 
   public onSubmit() {
+    console.log(this.data)
     const movieData: IMovie = {
-      id: this.data.id,
+      id: this.data.id ,
       name: this.movieForm.getRawValue().name!,
       genre: this.movieForm.getRawValue().genre!,
       description: this.movieForm.getRawValue().description!,
       img: this.movieForm.getRawValue().img!,
       price: this.movieForm.getRawValue().price!,
+    }
+    if(this.data.isNew) {
+      this.movieService.createMovie(movieData).subscribe(() => this.movieService.getMovies());
+      this.dialogRef.close([]);
     }
     this.movieService.updateMovies(movieData).subscribe(() => this.movieService.getMovies());
     this.dialogRef.close([]);
