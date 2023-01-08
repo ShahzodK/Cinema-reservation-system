@@ -1,8 +1,8 @@
-import { IMovie } from './../../models/movie.model';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MoviesService } from 'src/app/services/movies.service';
 import { MovieModalComponent } from '../movie-modal/movie-modal.component';
+import { IMovie } from '../../../models/movie.model';
 
 @Component({
   selector: 'app-confirmation-modal',

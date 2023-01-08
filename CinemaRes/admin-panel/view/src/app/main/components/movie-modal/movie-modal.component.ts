@@ -2,8 +2,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import { IMovie } from './../../models/movie.model';
-import { MoviesService } from './../../services/movies.service';
+import { IMovie } from '../../../models/movie.model';
+import { MoviesService } from '../../../services/movies.service';
 
 
 
