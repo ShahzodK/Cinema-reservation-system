@@ -1,1 +1,17 @@
-<router-outlet></router-outlet>
+<mat-drawer-container class="sidenav-container">
+  <mat-drawer #drawer mode="side" disableClose="true" class="sidenav-content-wrapper" opened>
+    <div class="sidenav-content">    
+      <h2>Admin panel</h2>
+      <div class="sidenav-item sidenav-active">
+        <img src="../assets/overview.svg" alt="overview">
+        <button mat-button class="sidenav-button">Overview</button>
+      </div>  
+      <div class="sidenav-item">
+        <img src="../assets/tickets.svg" alt="tickets">
+        <button mat-button class="sidenav-button">Tickets</button>
+      </div>
+    </div>
+  </mat-drawer>
+
+  <router-outlet></router-outlet>
+</mat-drawer-container>
