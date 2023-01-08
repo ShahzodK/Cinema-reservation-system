@@ -52,3 +52,6 @@
 .mouse-moved:hover{
     -fx-background-color: #E4E4E4;
 }
+.button1:hover{
+    -fx-background-color:#060120;
+}
