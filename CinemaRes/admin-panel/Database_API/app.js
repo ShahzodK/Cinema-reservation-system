@@ -24,6 +24,23 @@ const pool = mysql.createPool({
     database : 'movies'
 })
 
+// get all users
+app.get('/users', (req, res) => {
+    console.log('users')
+    pool.getConnection ((err, connection) => {
+        if(err) throw err
+        console.log(`connected as id ${connection.threadId}`)
+        connection.query('SELECT * from users', (err, rows) => {
+            connection.release () // return the connection to pool
+            if(!err) {
+                res.send(rows)
+            } else {
+                console.log(err)
+            }
+        })
+    })
+})
+
 // get all movies
 app.get('', (req, res) => {
     console.log('getted')
@@ -46,30 +63,36 @@ app.get('/:id', (req, res) => {
     
     pool.getConnection ((err, connection) => {
         if(err) throw err
-            console.log(`connected as id ${connection.threadId}`)
+        console.log(`connected as id ${connection.threadId}`)
 
-            connection.query('SELECT * from movies WHERE id = ?', [req.params.id], (err, rows) => {
-                connection.release() // return the connection to pool
+        connection.query('SELECT * from movies WHERE id = ?', [req.params.id], (err, rows) => {
+            connection.release() // return the connection to pool
 
-                    if(!err) {
-                        res.send(rows)
-                    } else {
-                        console.log(err)
-                    }
-                })
-            })
+            if(!err) {
+                res.send(rows)
+            } else {
+                console.log(err)
+            }
         })
+    })
+})
     
     // Delete a records movie
 app.delete('/:id', (req, res) => {
     pool.getConnection ((err, connection) => {
         if(err) throw err
-        console.log('connected as id ${connection. threadId}')
+        console.log(`connected as id ${connection. threadId}`)
 
         connection.query('DELETE from movies WHERE id = ?', [req.params.id], (err, rows) => {
             connection.release() // return the connection to pool
                 if(!err) {
-                    res.send(`Movie with the Record ID: ${[req.params.id]} has been removed.`)
+                    connection.query('SELECT * from movies', (err, rows) => {
+                        if(!err) {
+                            res.send(rows)
+                        } else {
+                            console.log(err)
+                        }
+                    })
                 } else {
                     console.log(err)
                 }
@@ -126,6 +149,10 @@ app.put('/:id', (req, res) => {
             console.log(req.body)
     })
 })
+
+
+
+
 
 // Listen on enviroment port or 5000
 app.listen (port, () => console.log(`Listen on port ${port}`))
