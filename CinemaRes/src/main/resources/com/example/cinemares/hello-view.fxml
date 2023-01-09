@@ -6,6 +6,11 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DisplacementMap?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.FloatMap?>
+<?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,7 +22,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cinemares.HelloController">
     <children>
-        <BorderPane prefHeight="800.0" prefWidth="1200.0" styleClass="white-background" stylesheets="@css/styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <BorderPane prefHeight="800.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
                 <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="200.0" spacing="20.0" styleClass="white-background" stylesheets="@css/styles.css" BorderPane.alignment="CENTER">
                     <children>
@@ -37,24 +42,21 @@
                                 </ImageView>
                             </children>
                         </HBox>
-                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                     <children>
+                                <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="71.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@img/icons8-профиль-кошки-96.png" />
+                                    </image>
+                                </ImageView>
+                     </children></Pane>
                         <HBox alignment="CENTER" prefHeight="60.0" prefWidth="318.0">
                      <children>
-                        <MenuButton mnemonicParsing="false" styleClass="transparent" stylesheets="@css/styles.css">
+                        <MenuButton mnemonicParsing="false" text="MenuButton">
                           <items>
                             <MenuItem mnemonicParsing="false" text="Action 1" />
                             <MenuItem fx:id="exitButton" mnemonicParsing="false" onAction="#exitButtonOnAction" text="quit" />
                           </items>
-                           <graphic>
-                                      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                          <image>
-                                              <Image url="@img/icons8-профиль-кошки-96.png" />
-                                          </image>
-                                      </ImageView>
-                           </graphic>
-                           <font>
-                              <Font size="20.0" />
-                           </font>
                         </MenuButton>
                      </children>
                         </HBox>
@@ -65,76 +67,110 @@
                 </HBox>
             </top>
             <left>
-                <VBox prefHeight="720.0" prefWidth="231.0" BorderPane.alignment="CENTER">
+                <VBox prefHeight="720.0" prefWidth="221.0" BorderPane.alignment="CENTER">
                     <children>
-                        <VBox prefHeight="720.0" prefWidth="222.0" spacing="25.0">
+                        <VBox prefHeight="197.0" prefWidth="200.0">
                             <children>
-                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@css/styles.css">
+                                <Label prefHeight="40.0" prefWidth="100.0" text="Browse">
+                                    <font>
+                                        <Font name="Ubuntu Bold" size="18.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets left="10.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@css/styles.css">
                                     <children>
-                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
                                                 <Image url="@img/icons8-звезда-96.png" />
                                             </image>
                                         </ImageView>
-                                        <Label prefHeight="32.0" prefWidth="122.0" text="Top movies">
+                                        <Label prefHeight="32.0" prefWidth="100.0" text="Top movies">
                                             <font>
-                                                <Font size="20.0" />
+                                                <Font name="Ubuntu Bold" size="16.0" />
                                             </font>
                                         </Label>
                                     </children>
                                 </HBox>
-                                <HBox alignment="CENTER" layoutX="10.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@css/styles.css">
+                                <HBox alignment="CENTER" layoutX="10.0" layoutY="100.0" prefHeight="50.0" prefWidth="200.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@css/styles.css">
                                     <children>
-                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
                                                 <Image url="@img/icons8-большой-хештег-80.png" />
                                             </image>
                                         </ImageView>
-                                        <Label prefHeight="32.0" prefWidth="114.0" text="Categories">
+                                        <Label prefHeight="32.0" prefWidth="100.0" text="Categories">
                                             <font>
-                                                <Font size="20.0" />
+                                                <Font name="Ubuntu Bold" size="16.0" />
                                             </font>
                                         </Label>
                                     </children>
                                 </HBox>
-                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@css/styles.css">
+                            </children>
+                        </VBox>
+                        <Separator layoutX="10.0" layoutY="207.0" prefWidth="200.0" />
+                        <VBox layoutX="10.0" layoutY="210.0" prefHeight="197.0" prefWidth="200.0">
+                            <children>
+                                <Label prefHeight="40.0" prefWidth="100.0" text="My Movies">
+                                    <font>
+                                        <Font name="Ubuntu Bold" size="18.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets left="10.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <HBox alignment="CENTER" layoutX="10.0" layoutY="100.0" prefHeight="50.0" prefWidth="200.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@css/styles.css">
                                     <children>
-                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
                                                 <Image url="@img/icons8-прошедшее-время-80.png" />
                                             </image>
                                         </ImageView>
                                         <Label prefHeight="32.0" prefWidth="100.0" text="History">
                                             <font>
-                                                <Font size="20.0" />
+                                                <Font name="Ubuntu Bold" size="16.0" />
                                             </font>
                                         </Label>
                                     </children>
                                 </HBox>
-                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@css/styles.css">
+                            </children>
+                        </VBox>
+                        <Separator layoutX="10.0" layoutY="407.0" prefWidth="200.0" />
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="197.0" prefWidth="200.0">
+                            <children>
+                                <Label prefHeight="40.0" prefWidth="190.0" text="Accaunt &amp; Services">
+                                    <font>
+                                        <Font name="Ubuntu Bold" size="18.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets left="10.0" />
+                                    </VBox.margin>
+                                </Label>
+                                <HBox alignment="CENTER" layoutX="10.0" layoutY="50.0" prefHeight="50.0" prefWidth="200.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@css/styles.css">
                                     <children>
-                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
                                                 <Image url="@img/icons8-наушники-80.png" />
                                             </image>
                                         </ImageView>
                                         <Label prefHeight="32.0" prefWidth="100.0" text="Help">
                                             <font>
-                                                <Font size="20.0" />
+                                                <Font name="Ubuntu Bold" size="16.0" />
                                             </font>
                                         </Label>
                                     </children>
                                 </HBox>
-                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@css/styles.css">
+                                <HBox alignment="CENTER" layoutX="10.0" layoutY="100.0" prefHeight="50.0" prefWidth="200.0" spacing="15.0" styleClass="mouse-moved" stylesheets="@css/styles.css">
                                     <children>
-                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
                                                 <Image url="@img/icons8-leader-64.png" />
                                             </image>
                                         </ImageView>
                                         <Label prefHeight="32.0" prefWidth="100.0" text="About Us">
                                             <font>
-                                                <Font size="20.0" />
+                                                <Font name="Ubuntu Bold" size="16.0" />
                                             </font>
                                         </Label>
                                     </children>
@@ -146,12 +182,150 @@
             </left>
             <center>
                 <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label prefHeight="48.0" prefWidth="184.0" text="Recently Added">
+                            <font>
+                                <Font name="Franklin Gothic Medium" size="24.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                        </Label>
+                        <HBox alignment="CENTER" prefHeight="211.0" prefWidth="923.0">
+                            <children>
+                                <ImageView fitHeight="130.0" fitWidth="250.0" layoutX="211.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@img/wakanda.jpg" />
+                                    </image>
+                                    <HBox.margin>
+                                        <Insets bottom="-10.0" left="-10.0" right="-10.0" top="-10.0" />
+                                    </HBox.margin>
+                                    <effect>
+                                        <BoxBlur />
+                                    </effect>
+                                </ImageView>
+                                <ImageView fitHeight="250.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@img/spiderman.png" />
+                                    </image>
+                                    <HBox.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </HBox.margin>
+                                    <effect>
+                                        <DropShadow height="50.31" radius="42.24" spread="0.22" width="120.65" />
+                                    </effect>
+                                </ImageView>
+                                <ImageView fitHeight="130.0" fitWidth="250.0" layoutX="79.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true" style="-fx-view-order: 1;">
+                                    <image>
+                                        <Image url="@img/ds2.jpg_903948830.jpg" />
+                                    </image>
+                                    <HBox.margin>
+                                        <Insets bottom="-10.0" left="-10.0" right="-10.0" top="-10.0" />
+                                    </HBox.margin>
+                                    <effect>
+                                        <BoxBlur />
+                                    </effect>
+                                </ImageView>
+                            </children>
+                            <VBox.margin>
+                                <Insets top="30.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <Label prefHeight="48.0" prefWidth="269.0" text="Recomendation For You">
+                            <font>
+                                <Font name="Franklin Gothic Medium" size="24.0" />
+                            </font>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <VBox.margin>
+                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                            </VBox.margin>
+                        </Label>
+                        <HBox alignment="CENTER" prefHeight="258.0" prefWidth="939.0" spacing="40.0">
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                            <children>
+                                <VBox prefHeight="194.0" prefWidth="146.0">
+                                    <children>
+                                        <ImageView fitHeight="318.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@img/antman.jpg" />
+                                            </image>
+                                            <effect>
+                                                <DisplacementMap>
+                                                    <mapData>
+                                                        <FloatMap />
+                                                    </mapData>
+                                                </DisplacementMap>
+                                            </effect>
+                                        </ImageView>
+                                    </children>
+                                </VBox>
+                                <VBox layoutX="380.0" layoutY="15.0" prefHeight="194.0" prefWidth="146.0">
+                                    <children>
+                                        <ImageView fitHeight="318.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@img/she_hulk_poster_by_arifinity_df5pytq-fullview.jpg" />
+                                            </image>
+                                            <effect>
+                                                <DisplacementMap>
+                                                    <mapData>
+                                                        <FloatMap />
+                                                    </mapData>
+                                                </DisplacementMap>
+                                            </effect>
+                                        </ImageView>
+                                    </children>
+                                </VBox>
+                                <VBox layoutX="505.0" layoutY="15.0" prefHeight="194.0" prefWidth="146.0">
+                                    <children>
+                                        <ImageView fitHeight="249.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@img/space-jam-2021.jpg" />
+                                            </image>
+                                            <effect>
+                                                <DisplacementMap>
+                                                    <mapData>
+                                                        <FloatMap />
+                                                    </mapData>
+                                                </DisplacementMap>
+                                            </effect>
+                                        </ImageView>
+                                    </children>
+                                </VBox>
+                                <VBox layoutX="630.0" layoutY="15.0" prefHeight="194.0" prefWidth="146.0">
+                                    <children>
+                                        <ImageView fitHeight="250.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@img/https___hypebeast.com_image_2022_06_thor-love-and-thunder-character-posters-first-look-info-001.jpg" />
+                                            </image>
+                                            <effect>
+                                                <DisplacementMap>
+                                                    <mapData>
+                                                        <FloatMap />
+                                                    </mapData>
+                                                </DisplacementMap>
+                                            </effect>
+                                        </ImageView>
+                                    </children>
+                                </VBox>
+                            </children>
+                            <padding>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </padding>
+                            <effect>
+                                <Reflection />
+                            </effect>
+                        </HBox>
+                    </children>
                     <padding>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                     </padding>
-               <children>
-                  <Pane prefHeight="681.0" prefWidth="929.0" />
-               </children>
                 </VBox>
             </center>
         </BorderPane>
