@@ -1,17 +1,20 @@
 <mat-drawer-container class="sidenav-container">
   <mat-drawer #drawer mode="side" disableClose="true" class="sidenav-content-wrapper" opened>
-    <div class="sidenav-content">    
+    <div class="sidenav-content">
       <h2>Admin panel</h2>
-      <div class="sidenav-item sidenav-active">
+      <div class="sidenav-item sidenav-active" [routerLink]="'/main'">
         <img src="../assets/overview.svg" alt="overview">
         <button mat-button class="sidenav-button">Overview</button>
-      </div>  
+      </div>
       <div class="sidenav-item">
         <img src="../assets/tickets.svg" alt="tickets">
         <button mat-button class="sidenav-button">Tickets</button>
       </div>
+      <div class="sidenav-item" [routerLink]="'/users'">
+        <img src="../assets/users.svg" alt="users">
+        <button mat-button class="sidenav-button">Users</button>
+      </div>
     </div>
   </mat-drawer>
-
   <router-outlet></router-outlet>
 </mat-drawer-container>

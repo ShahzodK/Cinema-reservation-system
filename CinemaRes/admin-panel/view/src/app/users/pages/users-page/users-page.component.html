@@ -1,0 +1,25 @@
+<header><h2>Users</h2></header>
+<table mat-table [dataSource]="moviesService.users">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let user"> {{this.user?.name + ' ' +  this.user.surname}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> email </th>
+    <td mat-cell *matCellDef="let user"> {{this.user?.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="phone">
+    <th mat-header-cell *matHeaderCellDef> phone </th>
+    <td mat-cell *matCellDef="let user">{{this.user?.phone}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="purchasedMovies">
+    <th mat-header-cell *matHeaderCellDef> purchased movies </th>
+    <td mat-cell *matCellDef="let user"> {{this.user?.purchasedMovies}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

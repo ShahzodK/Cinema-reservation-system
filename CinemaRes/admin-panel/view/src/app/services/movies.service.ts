@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IMovie } from './../models/movie.model';
 import { Observable, switchMap } from 'rxjs';
+import { IUser } from '../users/models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,8 @@ export class MoviesService {
   public host = 'http://localhost:5000/';
 
   public movies: IMovie[] = [];
+
+  public users: IUser[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -28,6 +31,10 @@ export class MoviesService {
 
   public deleteMovie(id: string) {
     return this.http.delete(`${this.host}${id}`);
+  }
+
+  public getUsers() {
+    return this.http.get<IUser[]>(`${this.host}users`).subscribe((users) => this.users = users)
   }
 
 }
