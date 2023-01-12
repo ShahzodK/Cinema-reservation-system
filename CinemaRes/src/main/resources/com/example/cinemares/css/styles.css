@@ -56,3 +56,15 @@
 	-fx-border-color: #16213E;
 	-fx-border-width: 1;
 }
+.carousel-button-left{
+	-fx-background-color: linear-gradient(to left, rgba(0,0,0,0.1), rgba(0,0,0,0.8));
+}
+.carousel-button-right{
+	-fx-background-color: linear-gradient(to right, rgba(0,0,0,0.1), rgba(0,0,0,0.8));
+}
+.carousel-button-left:hover{
+	-fx-background-color: linear-gradient(to left, rgba(0,0,0,0.2), rgba(0,0,0,0.9));
+}
+.carousel-button-right:hover{
+	-fx-background-color: linear-gradient(to right, rgba(0,0,0,0.2), rgba(0,0,0,0.9));
+}
