@@ -4,5 +4,5 @@ export interface IUser {
   surname: string;
   email: string;
   phone: number;
-  purchasedMovies:any;
+  purchasedMovies: any;
 }

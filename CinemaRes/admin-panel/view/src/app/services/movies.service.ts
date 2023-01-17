@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IMovie } from './../models/movie.model';
-import { Observable, switchMap } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { IUser } from '../users/models/user.model';
 
 @Injectable({
@@ -11,14 +11,14 @@ export class MoviesService {
 
   public host = 'http://localhost:5000/';
 
-  public movies: IMovie[] = [];
+  public movies: BehaviorSubject<IMovie[]> = new BehaviorSubject<IMovie[]>([]);
 
   public users: IUser[] = [];
 
   constructor(private http: HttpClient) {}
 
   public getMovies() {
-    return this.http.get<IMovie[]>(this.host).subscribe((movies) => this.movies = movies)
+    return this.http.get<IMovie[]>(this.host).subscribe((movies) => this.movies.next(movies));
   }
 
   public createMovie(movie: IMovie) {
@@ -34,7 +34,7 @@ export class MoviesService {
   }
 
   public getUsers() {
-    return this.http.get<IUser[]>(`${this.host}users`).subscribe((users) => this.users = users)
+    return this.http.get<IUser[]>(`${this.host}users`).subscribe((users) => this.users = users);
   }
 
 }

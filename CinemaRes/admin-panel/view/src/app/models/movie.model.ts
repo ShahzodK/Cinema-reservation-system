@@ -5,4 +5,6 @@ export interface IMovie {
   description: string;
   price: number;
   img: string;
+  purchasedTickets?: number;
+  tickets: number;
 }

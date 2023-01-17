@@ -34,6 +34,11 @@
       <input id="price" type="text" formControlName="price" matInput>
     </mat-form-field>
 
+    <mat-form-field>
+      <mat-label for="tickets">Tickets</mat-label>
+      <input id="tickets" type="text" formControlName="tickets" matInput>
+    </mat-form-field>
+
     <button *ngIf="data.isNew; else updateMovieButton" mat-raised-button color="primary">Create</button>
     <ng-template #updateMovieButton> <button mat-raised-button color="primary">Update</button></ng-template>
 

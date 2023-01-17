@@ -1,7 +1,7 @@
 
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import { IMovie } from '../../../models/movie.model';
 import { MoviesService } from '../../../services/movies.service';
 
@@ -26,7 +26,8 @@ export class MovieModalComponent {
     genre: new FormControl(this.data.genre, Validators.required),
     description: new FormControl(this.data.description, Validators.required),
     img: new FormControl(this.data.img, Validators.required),
-    price: new FormControl(this.data.price, Validators.required)
+    price: new FormControl(this.data.price, Validators.required),
+    tickets: new FormControl(this.data.tickets, Validators.required)
   })
 
   public onSubmit() {
@@ -37,6 +38,7 @@ export class MovieModalComponent {
       description: this.movieForm.getRawValue().description!,
       img: this.movieForm.getRawValue().img!,
       price: this.movieForm.getRawValue().price!,
+      tickets: this.movieForm.getRawValue().tickets!
     }
     if(this.data.isNew) {
       this.movieService.createMovie(movieData).subscribe(() => this.movieService.getMovies());

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from './../shared/shared.module';
 import { MainRoutingModule } from './main-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MovieListComponent } from './pages/movie-list/movie-list.component';
@@ -9,6 +10,7 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+
 
 import { MovieModalComponent } from './components/movie-modal/movie-modal.component';
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
@@ -20,9 +22,10 @@ import { ConfirmationModalComponent } from './components/confirmation-modal/conf
     MovieListComponent,
     MovieModalComponent,
     ConfirmationModalComponent
-  ],
+    ],
   imports: [
     CommonModule,
+    SharedModule,
     MainRoutingModule,
     ReactiveFormsModule,
     MatDialogModule,
