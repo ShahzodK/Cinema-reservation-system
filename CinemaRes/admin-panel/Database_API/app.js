@@ -125,10 +125,10 @@ app.put('/:id', (req, res) => {
         if(err) throw err
         console.log(`connected as id ${connection.threadId}`)
 
-        const { id, name, description, genre, img, price } = req.body
+        const { id, name, description, genre, img, imdb, year, country, director, actors, language, tickets, price } = req.body
 
-        connection.query('UPDATE movies SET name = ?, description = ?, genre = ?, img = ?, price = ? WHERE id = ? ', [name, description,
-        genre, img, price, id], (err, rows) => {
+        connection.query('UPDATE movies SET name = ?, description = ?, genre = ?, img = ?, imdb = ?, year = ?, country = ?, director = ?, actors = ?, language = ?, price = ?, tickets = ? WHERE id = ? ', [name, description,
+        genre, img, imdb, year, country, director, actors, language, price, tickets, id,], (err, rows) => {
             connection.release() // return the connection to pool
 
 
