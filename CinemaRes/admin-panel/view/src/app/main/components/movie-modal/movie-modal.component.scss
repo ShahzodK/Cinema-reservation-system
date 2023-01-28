@@ -1,8 +1,24 @@
 form {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
+h3 {
+  text-align: center;
+}
+
+.create-movie-button {
+  width: 31%;
+}
+
+.mat-form-field-wrapper {
+  margin-right: 40px;
+}
+
+.mat-form-field {
+  width: 35%;
+}
 .modal {
   &-wrapper {
     position: relative;

@@ -56,7 +56,7 @@ export class MovieListComponent implements OnInit, AfterViewInit {
     })
 }
 
-  public displayedColumns = ['name', 'image', 'genre', 'description', 'price', 'purchasedTickets', 'tickets', 'update', 'delete'];
+  public displayedColumns = ['name', 'image', 'genre', 'description', 'imdb', 'year', 'country', 'director', 'actors', 'language', 'price', 'purchasedTickets', 'tickets', 'update', 'delete'];
   public clickedRows = new Set<IMovie>();
 
   public showModal(isNew: boolean, movie?: IMovie) {
@@ -69,6 +69,12 @@ export class MovieListComponent implements OnInit, AfterViewInit {
           genre: movie?.genre,
           description: movie?.description,
           img: movie?.img,
+          imdb: movie?.imdb,
+          year: movie?.year,
+          country: movie?.country,
+          director: movie?.director,
+          actors: movie?.actors,
+          language: movie?.language,
           price: movie?.price,
           tickets: movie?.tickets
         }

@@ -28,19 +28,48 @@
       <input id="description" type="text" formControlName="description" matInput>
     </mat-form-field>
 
+    <mat-form-field>
+      <mat-label for="imdb">IMDB Rating</mat-label>
+      <input id="imdb" type="number" formControlName="imdb" matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="year">Year</mat-label>
+      <input id="year" type="number" formControlName="year" matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="country">Country</mat-label>
+      <input id="country" type="text" formControlName="country" matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="director">Director</mat-label>
+      <input id="director" type="text" formControlName="director" matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="actors">Actors</mat-label>
+      <input id="actors" type="text" formControlName="actors" matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="language">Language</mat-label>
+      <input id="language" type="text" formControlName="language" matInput>
+    </mat-form-field>
 
     <mat-form-field>
       <mat-label for="price">Price</mat-label>
-      <input id="price" type="text" formControlName="price" matInput>
+      <input id="price" type="number" formControlName="price" matInput>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label for="tickets">Tickets</mat-label>
-      <input id="tickets" type="text" formControlName="tickets" matInput>
+      <input id="tickets" type="number" formControlName="tickets" matInput>
     </mat-form-field>
 
-    <button *ngIf="data.isNew; else updateMovieButton" mat-raised-button color="primary">Create</button>
-    <ng-template #updateMovieButton> <button mat-raised-button color="primary">Update</button></ng-template>
+    <button *ngIf="data.isNew; else updateMovieButton" mat-raised-button color="primary" class="create-movie-button">Create</button>
+    <ng-template #updateMovieButton> <button mat-raised-button color="primary" class="create-movie-button">Update</button></ng-template>
 
   </form>
 </div>
