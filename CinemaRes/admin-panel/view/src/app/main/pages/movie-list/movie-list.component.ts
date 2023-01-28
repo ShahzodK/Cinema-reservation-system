@@ -5,8 +5,10 @@ import { MoviesService } from '../../../services/movies.service';
 import { IMovie } from '../../../models/movie.model';
 import { MovieModalComponent } from '../../components/movie-modal/movie-modal.component';
 import { ConfirmationModalComponent } from '../../components/confirmation-modal/confirmation-modal.component';
-import { MatSort, Sort } from '@angular/material/sort';
-import { last, skip, skipLast, take } from 'rxjs/operators';
+import { MatSort } from '@angular/material/sort';
+import { skip } from 'rxjs/operators';
+import { IUser } from 'src/app/users/models/user.model';
+import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-movie-list',
@@ -28,14 +30,30 @@ export class MovieListComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.moviesService.getMovies();
     this.moviesService.getUsers();
+    combineLatest([this.moviesService.users, this.moviesService.movies]).pipe(skip(2)).subscribe(([users, movies]) => {
+      const cumulativePurchasedMovies: { [key: string]: number } = {};
+
+      users.map((user: IUser) => {
+      const purchasedMovies = JSON.parse(user.purchasedMovies);
+        for (const key in purchasedMovies) {
+          if (cumulativePurchasedMovies.hasOwnProperty(key)) {
+            cumulativePurchasedMovies[key] += purchasedMovies[key];
+          }
+          else cumulativePurchasedMovies[key] = purchasedMovies[key];
+        }
+
+      movies.map((movie) => {
+          if (cumulativePurchasedMovies[movie.name]) movie.purchasedTickets = cumulativePurchasedMovies[movie.name];
+        });
+      })
+    })
   }
 
   ngAfterViewInit() {
-    this.moviesService.movies.pipe(skip(1)).subscribe((movies: IMovie[]) => {
+    this.moviesService.movies.pipe(skip(1)).subscribe((movies) => {
       this.dataSource = new MatTableDataSource(movies);
       this.dataSource.sort = this.sort;
-
-    } )
+    })
 }
 
   public displayedColumns = ['name', 'image', 'genre', 'description', 'price', 'purchasedTickets', 'tickets', 'update', 'delete'];

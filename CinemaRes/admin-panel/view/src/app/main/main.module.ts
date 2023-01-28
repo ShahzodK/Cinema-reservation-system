@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 
 import { MovieModalComponent } from './components/movie-modal/movie-modal.component';
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
+import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 
 
 
@@ -21,7 +22,8 @@ import { ConfirmationModalComponent } from './components/confirmation-modal/conf
   declarations: [
     MovieListComponent,
     MovieModalComponent,
-    ConfirmationModalComponent
+    ConfirmationModalComponent,
+    PieChartComponent
     ],
   imports: [
     CommonModule,

@@ -1,8 +1,9 @@
 export interface IUser {
   id: number;
-  name: string;
-  surname: string;
+  firstname: string;
+  lastname: string;
+  username: string;
   email: string;
-  phone: number;
+  phonenumber: number;
   purchasedMovies: any;
 }

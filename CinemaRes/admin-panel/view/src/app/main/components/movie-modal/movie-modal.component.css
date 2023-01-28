@@ -1,0 +1,17 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-wrapper {
+  position: relative;
+}
+.modal-close-button {
+  position: absolute;
+  top: -38px;
+  right: -20px;
+  font-size: 18px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}/*# sourceMappingURL=movie-modal.component.css.map */

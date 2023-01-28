@@ -17,6 +17,6 @@ export class UsersPageComponent implements OnInit {
     this.moviesService.getUsers();
   }
 
-  public displayedColumns = ['name', 'email', 'phone', 'purchasedMovies'];
+  public displayedColumns = ['name', 'username', 'email', 'phone', 'purchasedMovies'];
   public clickedRows = new Set<IUser>();
 }

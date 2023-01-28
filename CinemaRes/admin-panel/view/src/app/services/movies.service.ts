@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IMovie } from './../models/movie.model';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, combineLatest, skip } from 'rxjs';
 import { IUser } from '../users/models/user.model';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class MoviesService {
 
   public movies: BehaviorSubject<IMovie[]> = new BehaviorSubject<IMovie[]>([]);
 
-  public users: IUser[] = [];
+  public users: BehaviorSubject<IUser[]> = new BehaviorSubject<IUser[]>([]);
 
   constructor(private http: HttpClient) {}
 
@@ -34,7 +34,7 @@ export class MoviesService {
   }
 
   public getUsers() {
-    return this.http.get<IUser[]>(`${this.host}users`).subscribe((users) => this.users = users);
+    return this.http.get<IUser[]>(`${this.host}users`).subscribe((users) => this.users.next(users));
   }
 
 }

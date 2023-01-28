@@ -10,12 +10,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 import { UsersPageComponent } from './pages/users-page/users-page.component';
+import { ExampleComponent } from './example/example.component';
 
 
 
 @NgModule({
   declarations: [
-    UsersPageComponent
+    UsersPageComponent,
+    ExampleComponent
   ],
   imports: [
     CommonModule,

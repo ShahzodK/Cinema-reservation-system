@@ -1,4 +1,7 @@
 <header><h2>Admin panel</h2></header>
+<div class="statistics">
+  <app-pie-chart></app-pie-chart>
+</div>
 <div class="movies-list">
   <button mat-raised-button color="primary" class="create-movie-button" (click)="showModal(true)">Create Movie</button>
   <table mat-table [dataSource]="dataSource" matSort>
