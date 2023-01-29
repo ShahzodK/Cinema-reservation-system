@@ -6,9 +6,9 @@
         <img src="../assets/overview.svg" alt="overview">
         <button mat-button class="sidenav-button">Overview</button>
       </div>
-      <div class="sidenav-item">
+      <div class="sidenav-item" [routerLink]="'/orders'">
         <img src="../assets/tickets.svg" alt="tickets">
-        <button mat-button class="sidenav-button">Tickets</button>
+        <button mat-button class="sidenav-button">Orders</button>
       </div>
       <div class="sidenav-item" [routerLink]="'/users'">
         <img src="../assets/users.svg" alt="users">

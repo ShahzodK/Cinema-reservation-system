@@ -12,6 +12,11 @@ const routes: Routes = [
     loadChildren: () => import('./users/users.module')
       .then((mod) => mod.UsersModule),
   },
+  {
+    path: 'orders',
+    loadChildren: () => import('./orders/orders.module')
+      .then((mod) => mod.OrdersModule),
+  },
   { path: '', redirectTo: 'main', pathMatch:'full' },
 ];
 

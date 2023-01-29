@@ -24,6 +24,23 @@ const pool = mysql.createPool({
     database : 'movies'
 })
 
+// get all orders
+app.get('/orders', (req, res) => {
+    console.log('orders')
+    pool.getConnection ((err, connection) => {
+        if(err) throw err
+        console.log(`connected as id ${connection.threadId}`)
+        connection.query('SELECT * from orders', (err, rows) => {
+            connection.release () // return the connection to pool
+            if(!err) {
+                res.send(rows)
+            } else {
+                console.log(err)
+            }
+        })
+    })
+})
+
 // get all users
 app.get('/users', (req, res) => {
     console.log('users')
