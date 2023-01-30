@@ -1,446 +1,240 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cinemares.Payment_1">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" styleClass="body" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cinemares.Payment">
    <children>
-      <VBox prefHeight="800.0" prefWidth="352.0" styleClass="dark-blue-background" stylesheets="@css/styles.css">
+      <Button fx:id="btnback" layoutY="289.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="49.0" styleClass="navbar-button" stylesheets="@css/style.css">
+         <graphic>
+            <ImageView fitHeight="41.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/logout-box-r-line.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="845.0" layoutY="6.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="46.0" styleClass="navbar-button" stylesheets="@css/style.css" />
+      <StackPane layoutX="109.0" layoutY="51.0" prefHeight="518.0" prefWidth="799.0">
          <children>
-            <Pane prefHeight="165.0" prefWidth="306.0">
+            <Pane fx:id="paneUzcard" prefHeight="518.0" prefWidth="782.0" styleClass="body" stylesheets="@css/style.css">
                <children>
-                  <Label layoutX="58.0" layoutY="25.0" prefHeight="58.0" prefWidth="191.0" text="Payment " textFill="WHITE">
+                  <TextField layoutX="494.0" layoutY="135.0" prefHeight="45.0" prefWidth="265.0" promptText="Name on card" styleClass="input" stylesheets="@css/style.css">
                      <font>
-                        <Font name="System Bold" size="40.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
-                  </Label>
-                  <Label layoutX="77.0" layoutY="76.0" text="method" textFill="#fffafa">
+                  </TextField>
+                  <TextField layoutX="494.0" layoutY="214.0" prefHeight="45.0" prefWidth="259.0" promptText="Card number" styleClass="input" stylesheets="@css/style.css">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField layoutX="494.0" layoutY="286.0" prefHeight="45.0" prefWidth="209.0" promptText="Expiry date" styleClass="input" stylesheets="@css/style.css">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="completeCheckout" layoutX="494.0" layoutY="425.0" mnemonicParsing="false" styleClass="input" stylesheets="@css/style.css" text="Complete Checkout" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="70.0" layoutY="32.0" text="ORDER DETAILS" textFill="#f4f2f2">
                      <font>
                         <Font name="System Bold" size="36.0" />
                      </font>
                   </Label>
+                  <Label layoutX="70.0" layoutY="417.0" text="TOTAL:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
                </children>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
             </Pane>
-            <Button fx:id="btnUzcard" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClicks" onContextMenuRequested="#handleClicks" prefHeight="96.0" prefWidth="355.0" stylesheets="@css/styles.css" text="Uzcard" textFill="#fcfcfc">
-               <graphic>
-                  <ImageView fitHeight="29.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/card-default.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="24.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <styleClass>
-                  <String fx:value="dark-blue-background" />
-                  <String fx:value="button1" />
-               </styleClass>
-               <padding>
-                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-               </padding>
-            </Button>
-            <Button fx:id="btnHumo" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClicks" onContextMenuRequested="#handleClicks" prefHeight="96.0" prefWidth="354.0" stylesheets="@css/styles.css" text="Humo" textFill="#fcfcfc">
-               <graphic>
-                  <ImageView fitHeight="29.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/card-default.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="24.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <styleClass>
-                  <String fx:value="dark-blue-background" />
-                  <String fx:value="button1" />
-               </styleClass>
-               <padding>
-                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-               </padding>
-            </Button>
-            <Button fx:id="btnVisa" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClicks" onContextMenuRequested="#handleClicks" prefHeight="96.0" prefWidth="353.0" stylesheets="@css/styles.css" text="Visa" textFill="#fcfcfc">
-               <graphic>
-                  <ImageView fitHeight="29.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/card-default.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="24.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <styleClass>
-                  <String fx:value="dark-blue-background" />
-                  <String fx:value="button1" />
-               </styleClass>
-               <padding>
-                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-               </padding>
-            </Button>
-            <Button fx:id="btnMC" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClicks" onContextMenuRequested="#handleClicks" prefHeight="96.0" prefWidth="352.0" stylesheets="@css/styles.css" text="MasterCard" textFill="#fcfcfc">
-               <font>
-                  <Font size="24.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="29.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/card-default.jpg" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <styleClass>
-                  <String fx:value="dark-blue-background" />
-                  <String fx:value="button1" />
-               </styleClass>
-               <padding>
-                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-               </padding>
-            </Button>
-         </children>
-      </VBox>
-      <Pane layoutX="371.0" layoutY="27.0" prefHeight="320.0" prefWidth="783.0">
-         <children>
-            <Label layoutX="65.0" layoutY="238.0" text="Total:">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Label>
-            <Label layoutX="65.0" layoutY="38.0" text="Order details:">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <StackPane layoutX="393.0" layoutY="339.0">
-         <children>
-            <GridPane fx:id="pnVisa">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1102.4" minWidth="10.0" prefWidth="1102.4" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="541.4000244140625" minWidth="0.0" prefWidth="0.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints maxHeight="436.0" minHeight="10.0" prefHeight="436.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="140.60001220703126" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="32.59995117187498" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-               </rowConstraints>
+            <Pane fx:id="paneHumo" prefHeight="518.0" prefWidth="782.0" styleClass="body" stylesheets="@css/style.css">
                <children>
-                  <Pane prefHeight="418.0" prefWidth="1087.0" style="-fx-background-color: lightgray;">
-                     <children>
-                        <Label layoutX="64.0" layoutY="41.0" prefHeight="30.0" prefWidth="149.0" text="Name on card">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="61.0" layoutY="162.0" text="Card number">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="372.0" layoutY="155.0" prefHeight="30.0" prefWidth="159.0" text="Expiry date">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="61.0" layoutY="71.0" prefHeight="45.0" prefWidth="265.0">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </TextField>
-                        <TextField layoutX="64.0" layoutY="192.0" prefHeight="45.0" prefWidth="259.0">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </TextField>
-                        <TextField layoutX="372.0" layoutY="192.0" prefHeight="45.0" prefWidth="149.0">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </TextField>
-                        <Button fx:id="completeCheckout" layoutX="71.0" layoutY="338.0" mnemonicParsing="false" stylesheets="@css/styles.css" text="Complete checkout" textFill="WHITE">
-                           <styleClass>
-                              <String fx:value="dark-blue-background" />
-                              <String fx:value="button1" />
-                           </styleClass>
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Button>
-                        <TextField layoutX="579.0" layoutY="192.0" prefHeight="43.0" prefWidth="180.0">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </TextField>
-                        <Label layoutX="587.0" layoutY="161.0" text="CVC/CVV">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="722.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+                  <TextField layoutX="494.0" layoutY="135.0" prefHeight="45.0" prefWidth="265.0" promptText="Name on card" styleClass="input" stylesheets="@css/style.css">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField layoutX="494.0" layoutY="214.0" prefHeight="45.0" prefWidth="259.0" promptText="Card number" styleClass="input" stylesheets="@css/style.css">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField layoutX="494.0" layoutY="286.0" prefHeight="45.0" prefWidth="209.0" promptText="Expiry date" styleClass="input" stylesheets="@css/style.css">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="completeCheckout" layoutX="494.0" layoutY="425.0" mnemonicParsing="false" styleClass="navbar-button" stylesheets="@css/style.css" text="Complete Checkout" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="70.0" layoutY="32.0" text="ORDER DETAILS" textFill="#f4f2f2">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="70.0" layoutY="417.0" text="TOTAL:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="paneMS" prefHeight="518.0" prefWidth="782.0" styleClass="body" stylesheets="@css/style.css">
+               <children>
+                  <TextField layoutX="494.0" layoutY="135.0" prefHeight="45.0" prefWidth="265.0" promptText="Name on card" styleClass="input" stylesheets="@css/style.css">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField layoutX="494.0" layoutY="214.0" prefHeight="45.0" prefWidth="259.0" promptText="Card number" styleClass="input" stylesheets="@css/style.css">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField layoutX="494.0" layoutY="286.0" prefHeight="45.0" prefWidth="209.0" promptText="Expiry date" styleClass="input" stylesheets="@css/style.css">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="completeCheckout" layoutX="494.0" layoutY="425.0" mnemonicParsing="false" styleClass="input" stylesheets="@css/style.css" text="Complete Checkout" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <TextField layoutX="494.0" layoutY="355.0" prefHeight="45.0" prefWidth="209.0" promptText="CVC/CVV" styleClass="input" stylesheets="@css/style.css">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </TextField>
+                  <ImageView fitHeight="32.0" fitWidth="49.0" layoutX="648.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/card-default.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="70.0" layoutY="32.0" text="ORDER DETAILS" textFill="#f4f2f2">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="70.0" layoutY="417.0" text="TOTAL:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="paneVisa" prefHeight="518.0" prefWidth="782.0" styleClass="body" stylesheets="@css/style.css">
+               <children>
+                  <TextField layoutX="494.0" layoutY="135.0" prefHeight="45.0" prefWidth="265.0" promptText="Name on card" styleClass="input" stylesheets="@css/style.css">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField layoutX="494.0" layoutY="214.0" prefHeight="45.0" prefWidth="259.0" promptText="Card number" styleClass="input" stylesheets="@css/style.css">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField layoutX="494.0" layoutY="286.0" prefHeight="45.0" prefWidth="209.0" promptText="Expiry date" styleClass="input" stylesheets="@css/style.css">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="completeCheckout" layoutX="494.0" layoutY="425.0" mnemonicParsing="false" styleClass="input" stylesheets="@css/style.css" text="Complete Checkout" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <TextField layoutX="494.0" layoutY="355.0" prefHeight="45.0" prefWidth="209.0" promptText="CVC/CVV" styleClass="input" stylesheets="@css/style.css">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </TextField>
+                  <ImageView fitHeight="32.0" fitWidth="49.0" layoutX="648.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/card-default.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="70.0" layoutY="32.0" text="ORDER DETAILS" textFill="#f4f2f2">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="70.0" layoutY="417.0" text="TOTAL:" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="main_pane" prefHeight="518.0" prefWidth="805.0" styleClass="body" stylesheets="@css/style.css">
+               <children>
+                  <Label layoutX="231.0" text="Payment Methods" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="40.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnms" layoutX="450.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="178.0" prefWidth="304.0" styleClass="border" stylesheets="@css/style.css">
+                     <graphic>
+                        <ImageView fitHeight="170.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@img/card-default.jpg" />
+                              <Image url="@img/mastercard.jpeg" />
                            </image>
                         </ImageView>
-                     </children>
-                  </Pane>
-               </children>
-            </GridPane>
-            <GridPane fx:id="pnUzcard" onContextMenuRequested="#handleClicks">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1102.4" minWidth="10.0" prefWidth="1102.4" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="541.4000244140625" minWidth="0.0" prefWidth="0.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="436.0" minHeight="10.0" prefHeight="436.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="140.60001220703126" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="32.59995117187498" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Pane prefHeight="418.0" prefWidth="1087.0" style="-fx-background-color: lightgray;">
-                     <children>
-                        <Label layoutX="64.0" layoutY="41.0" prefHeight="30.0" prefWidth="149.0" text="Name on card">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="61.0" layoutY="162.0" text="Card number">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="372.0" layoutY="155.0" prefHeight="30.0" prefWidth="159.0" text="Expiry date">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="61.0" layoutY="71.0" prefHeight="45.0" prefWidth="265.0">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </TextField>
-                        <TextField layoutX="64.0" layoutY="192.0" prefHeight="45.0" prefWidth="259.0">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </TextField>
-                        <TextField layoutX="372.0" layoutY="192.0" prefHeight="45.0" prefWidth="149.0">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </TextField>
-                        <Button fx:id="completeCheckout" layoutX="71.0" layoutY="338.0" mnemonicParsing="false" stylesheets="@css/styles.css" text="Complete checkout" textFill="WHITE">
-                           <styleClass>
-                              <String fx:value="dark-blue-background" />
-                              <String fx:value="button1" />
-                           </styleClass>
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </Pane>
-               </children>
-            </GridPane>
-            <GridPane fx:id="pnHumo" prefHeight="436.0" prefWidth="1101.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1101.0" minWidth="10.0" prefWidth="1101.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.20001220703125" minWidth="0.0" prefWidth="0.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="436.79999999999995" minHeight="10.0" prefHeight="436.79999999999995" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="140.00000610351563" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="24.80002441406249" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Pane prefHeight="418.0" prefWidth="1087.0" style="-fx-background-color: lightgray;">
-                     <children>
-                        <Label layoutX="64.0" layoutY="41.0" prefHeight="30.0" prefWidth="149.0" text="Name on card">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="61.0" layoutY="162.0" text="Card number">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="372.0" layoutY="155.0" prefHeight="30.0" prefWidth="159.0" text="Expiry date">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="61.0" layoutY="71.0" prefHeight="45.0" prefWidth="265.0">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </TextField>
-                        <TextField layoutX="64.0" layoutY="192.0" prefHeight="45.0" prefWidth="259.0">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </TextField>
-                        <TextField layoutX="372.0" layoutY="192.0" prefHeight="45.0" prefWidth="149.0">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </TextField>
-                        <Button fx:id="completeCheckout" layoutX="71.0" layoutY="338.0" mnemonicParsing="false" stylesheets="@css/styles.css" text="Complete checkout" textFill="WHITE">
-                           <styleClass>
-                              <String fx:value="dark-blue-background" />
-                              <String fx:value="button1" />
-                           </styleClass>
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </Pane>
-               </children>
-            </GridPane>
-            <GridPane fx:id="pnMS">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Pane prefHeight="418.0" prefWidth="1087.0" style="-fx-background-color: lightgray;">
-                     <children>
-                        <Label layoutX="64.0" layoutY="41.0" prefHeight="30.0" prefWidth="149.0" text="Name on card">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="61.0" layoutY="162.0" text="Card number">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="372.0" layoutY="155.0" prefHeight="30.0" prefWidth="159.0" text="Expiry date">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="61.0" layoutY="71.0" prefHeight="45.0" prefWidth="265.0">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </TextField>
-                        <TextField layoutX="64.0" layoutY="192.0" prefHeight="45.0" prefWidth="259.0">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </TextField>
-                        <TextField layoutX="372.0" layoutY="192.0" prefHeight="45.0" prefWidth="149.0">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </TextField>
-                        <Button fx:id="completeCheckout" layoutX="71.0" layoutY="338.0" mnemonicParsing="false" stylesheets="@css/styles.css" text="Complete checkout" textFill="WHITE">
-                           <styleClass>
-                              <String fx:value="dark-blue-background" />
-                              <String fx:value="button1" />
-                           </styleClass>
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Button>
-                        <TextField layoutX="579.0" layoutY="192.0" prefHeight="43.0" prefWidth="180.0">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </TextField>
-                        <Label layoutX="587.0" layoutY="161.0" text="CVC/CVV">
-                           <font>
-                              <Font name="System Bold" size="20.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="722.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnvisa" layoutX="73.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="178.0" prefWidth="316.0" styleClass="border" stylesheets="@css/style.css">
+                     <graphic>
+                        <ImageView fitHeight="115.0" fitWidth="258.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@img/card-default.jpg" />
+                              <Image url="@img/visa.jpg" />
                            </image>
                         </ImageView>
-                     </children>
-                  </Pane>
-               </children>
-            </GridPane>
-         </children>
-      </StackPane>
-      <StackPane layoutX="1150.0" layoutY="58.0">
-         <children>
-            <Pane fx:id="imgHumo" prefHeight="270.0" prefWidth="346.0" style="-fx-background-color: #f2f2f2;">
-               <children>
-                  <ImageView fitHeight="220.0" fitWidth="346.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/humo.jpg" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-            <Pane fx:id="imgUzcard" prefHeight="270.0" prefWidth="346.0" style="-fx-background-color: #f2f2f2;">
-               <children>
-                  <ImageView fitHeight="248.0" fitWidth="346.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/uzcard.jpg" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-            <Pane fx:id="imgVisa" layoutX="10.0" layoutY="10.0" prefHeight="270.0" prefWidth="346.0" style="-fx-background-color: #f2f2f2;">
-               <children>
-                  <ImageView fitHeight="248.0" fitWidth="346.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/visa.jpg" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-            <Pane fx:id="imgMC" layoutX="10.0" layoutY="10.0" prefHeight="270.0" prefWidth="346.0" style="-fx-background-color: #f2f2f2;">
-               <children>
-                  <ImageView fitHeight="221.0" fitWidth="346.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/mastercard.jpg" />
-                     </image>
-                  </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnuz" layoutX="73.0" layoutY="95.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="178.0" prefWidth="316.0" styleClass="border" stylesheets="@css/style.css" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="170.0" fitWidth="298.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/uzcard.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnhumo" layoutX="450.0" layoutY="89.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="178.0" prefWidth="304.0" styleClass="border" stylesheets="@css/style.css" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="133.0" fitWidth="228.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/humo.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
             </Pane>
          </children>
       </StackPane>
+      <Button fx:id="exit_button" layoutX="953.0" mnemonicParsing="false" onAction="#handleClicks" style="-fx-background-color: transparent;" styleClass="exit_button" stylesheets="@css/style.css" textFill="#fffcfc">
+         <graphic>
+            <ImageView fitHeight="32.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" styleClass="exit">
+               <image>
+                  <Image url="@img/exit4.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
-   <padding>
-      <Insets left="40.0" />
-   </padding>
 </AnchorPane>

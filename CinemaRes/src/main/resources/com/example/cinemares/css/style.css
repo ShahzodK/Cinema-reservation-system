@@ -186,5 +186,16 @@
 -fx-effect: dropshadow(three-pass-box , #ffffff ,24.5,0,0,0 );
 }
 .exit_button:hover {
--fx-effect: dropshadow(three-pass-box , #ffffff ,24.5,0,0,0 );
+-fx-effect: dropshadow(three-pass-box , #ffffff ,40,0,0,0 );
 }
+.input{
+      -fx-background-color: white;
+      -fx-text-fill: black;
+}
+.input:hover{
+      -fx-background-color: rgba(255,255,255,0.2);
+      -fx-text-fill: gray;
+}
+.exit{
+      -fx-fill: white;
+      }
