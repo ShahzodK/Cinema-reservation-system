@@ -26,22 +26,22 @@
          <children>
             <Pane fx:id="paneUzcard" prefHeight="518.0" prefWidth="782.0" styleClass="body" stylesheets="@css/style.css">
                <children>
-                  <TextField layoutX="494.0" layoutY="135.0" prefHeight="45.0" prefWidth="265.0" promptText="Name on card" styleClass="input" stylesheets="@css/style.css">
+                  <TextField fx:id="name1" layoutX="494.0" layoutY="135.0" prefHeight="45.0" prefWidth="265.0" promptText="Name on card" styleClass="input" stylesheets="@css/style.css">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </TextField>
-                  <TextField layoutX="494.0" layoutY="214.0" prefHeight="45.0" prefWidth="259.0" promptText="Card number" styleClass="input" stylesheets="@css/style.css">
+                  <TextField fx:id="card1" layoutX="494.0" layoutY="214.0" prefHeight="45.0" prefWidth="259.0" promptText="Card number" styleClass="input" stylesheets="@css/style.css">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </TextField>
-                  <TextField layoutX="494.0" layoutY="286.0" prefHeight="45.0" prefWidth="209.0" promptText="Expiry date" styleClass="input" stylesheets="@css/style.css">
+                  <TextField fx:id="expiry1" layoutX="494.0" layoutY="286.0" prefHeight="45.0" prefWidth="209.0" promptText="Expiry date" styleClass="input" stylesheets="@css/style.css">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="completeCheckout" layoutX="494.0" layoutY="425.0" mnemonicParsing="false" styleClass="input" stylesheets="@css/style.css" text="Complete Checkout" textFill="WHITE">
+                  <Button fx:id="completeCheckout1" layoutX="494.0" layoutY="425.0" mnemonicParsing="false" onAction="#addAccountCardInfo1" styleClass="input" stylesheets="@css/style.css" text="Complete Checkout" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -60,22 +60,22 @@
             </Pane>
             <Pane fx:id="paneHumo" prefHeight="518.0" prefWidth="782.0" styleClass="body" stylesheets="@css/style.css">
                <children>
-                  <TextField layoutX="494.0" layoutY="135.0" prefHeight="45.0" prefWidth="265.0" promptText="Name on card" styleClass="input" stylesheets="@css/style.css">
+                  <TextField fx:id="name2" layoutX="494.0" layoutY="135.0" prefHeight="45.0" prefWidth="265.0" promptText="Name on card" styleClass="input" stylesheets="@css/style.css">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </TextField>
-                  <TextField layoutX="494.0" layoutY="214.0" prefHeight="45.0" prefWidth="259.0" promptText="Card number" styleClass="input" stylesheets="@css/style.css">
+                  <TextField fx:id="card2" layoutX="494.0" layoutY="214.0" prefHeight="45.0" prefWidth="259.0" promptText="Card number" styleClass="input" stylesheets="@css/style.css">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </TextField>
-                  <TextField layoutX="494.0" layoutY="286.0" prefHeight="45.0" prefWidth="209.0" promptText="Expiry date" styleClass="input" stylesheets="@css/style.css">
+                  <TextField fx:id="expiry2" layoutX="494.0" layoutY="286.0" prefHeight="45.0" prefWidth="209.0" promptText="Expiry date" styleClass="input" stylesheets="@css/style.css">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="completeCheckout" layoutX="494.0" layoutY="425.0" mnemonicParsing="false" styleClass="navbar-button" stylesheets="@css/style.css" text="Complete Checkout" textFill="WHITE">
+                  <Button fx:id="completeCheckout2" layoutX="494.0" layoutY="425.0" mnemonicParsing="false" onAction="#addAccountCardInfo2" styleClass="navbar-button" stylesheets="@css/style.css" text="Complete Checkout" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -92,29 +92,29 @@
                   </Label>
                </children>
             </Pane>
-            <Pane fx:id="paneMS" prefHeight="518.0" prefWidth="782.0" styleClass="body" stylesheets="@css/style.css">
+            <Pane fx:id="paneVisa" prefHeight="518.0" prefWidth="782.0" styleClass="body" stylesheets="@css/style.css">
                <children>
-                  <TextField layoutX="494.0" layoutY="135.0" prefHeight="45.0" prefWidth="265.0" promptText="Name on card" styleClass="input" stylesheets="@css/style.css">
+                  <TextField fx:id="name3" layoutX="494.0" layoutY="135.0" prefHeight="45.0" prefWidth="265.0" promptText="Name on card" styleClass="input" stylesheets="@css/style.css">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </TextField>
-                  <TextField layoutX="494.0" layoutY="214.0" prefHeight="45.0" prefWidth="259.0" promptText="Card number" styleClass="input" stylesheets="@css/style.css">
+                  <TextField fx:id="card3" layoutX="494.0" layoutY="214.0" prefHeight="45.0" prefWidth="259.0" promptText="Card number" styleClass="input" stylesheets="@css/style.css">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </TextField>
-                  <TextField layoutX="494.0" layoutY="286.0" prefHeight="45.0" prefWidth="209.0" promptText="Expiry date" styleClass="input" stylesheets="@css/style.css">
+                  <TextField fx:id="expiry3" layoutX="494.0" layoutY="286.0" prefHeight="45.0" prefWidth="209.0" promptText="Expiry date" styleClass="input" stylesheets="@css/style.css">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="completeCheckout" layoutX="494.0" layoutY="425.0" mnemonicParsing="false" styleClass="input" stylesheets="@css/style.css" text="Complete Checkout" textFill="WHITE">
+                  <Button fx:id="completeCheckout3" layoutX="494.0" layoutY="425.0" mnemonicParsing="false" onAction="#addAccountCardInfo3" styleClass="input" stylesheets="@css/style.css" text="Complete Checkout" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <TextField layoutX="494.0" layoutY="355.0" prefHeight="45.0" prefWidth="209.0" promptText="CVC/CVV" styleClass="input" stylesheets="@css/style.css">
+                  <TextField fx:id="cvc3" layoutX="494.0" layoutY="355.0" prefHeight="45.0" prefWidth="209.0" promptText="CVC/CVV" styleClass="input" stylesheets="@css/style.css">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -136,29 +136,29 @@
                   </Label>
                </children>
             </Pane>
-            <Pane fx:id="paneVisa" prefHeight="518.0" prefWidth="782.0" styleClass="body" stylesheets="@css/style.css">
+            <Pane fx:id="paneMS" prefHeight="518.0" prefWidth="782.0" styleClass="body" stylesheets="@css/style.css">
                <children>
-                  <TextField layoutX="494.0" layoutY="135.0" prefHeight="45.0" prefWidth="265.0" promptText="Name on card" styleClass="input" stylesheets="@css/style.css">
+                  <TextField fx:id="name4" layoutX="494.0" layoutY="135.0" prefHeight="45.0" prefWidth="265.0" promptText="Name on card" styleClass="input" stylesheets="@css/style.css">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </TextField>
-                  <TextField layoutX="494.0" layoutY="214.0" prefHeight="45.0" prefWidth="259.0" promptText="Card number" styleClass="input" stylesheets="@css/style.css">
+                  <TextField fx:id="card4" layoutX="494.0" layoutY="214.0" prefHeight="45.0" prefWidth="259.0" promptText="Card number" styleClass="input" stylesheets="@css/style.css">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </TextField>
-                  <TextField layoutX="494.0" layoutY="286.0" prefHeight="45.0" prefWidth="209.0" promptText="Expiry date" styleClass="input" stylesheets="@css/style.css">
+                  <TextField fx:id="expiry4" layoutX="494.0" layoutY="286.0" prefHeight="45.0" prefWidth="209.0" promptText="Expiry date" styleClass="input" stylesheets="@css/style.css">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="completeCheckout" layoutX="494.0" layoutY="425.0" mnemonicParsing="false" styleClass="input" stylesheets="@css/style.css" text="Complete Checkout" textFill="WHITE">
+                  <Button fx:id="completeCheckout4" layoutX="494.0" layoutY="425.0" mnemonicParsing="false" onAction="#addAccountCardInfo4" styleClass="input" stylesheets="@css/style.css" text="Complete Checkout" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <TextField layoutX="494.0" layoutY="355.0" prefHeight="45.0" prefWidth="209.0" promptText="CVC/CVV" styleClass="input" stylesheets="@css/style.css">
+                  <TextField fx:id="cvc4" layoutX="494.0" layoutY="355.0" prefHeight="45.0" prefWidth="209.0" promptText="CVC/CVV" styleClass="input" stylesheets="@css/style.css">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
