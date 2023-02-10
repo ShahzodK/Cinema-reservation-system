@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="CinemaReservationVer2" />
+        <module name="Cinema-reservation-system" />
         <module name="Cinema-reservation-system-main" />
       </profile>
     </annotationProcessing>
