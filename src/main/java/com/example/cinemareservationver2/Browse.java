@@ -144,6 +144,7 @@ public class Browse implements Initializable {
 //
 //        }
 
+
 //////////////////////////////CARD FOR ALL FILMS////////////////////////////////
 
         try{
