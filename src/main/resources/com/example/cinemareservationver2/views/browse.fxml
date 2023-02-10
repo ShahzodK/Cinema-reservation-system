@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="filmLoad" prefHeight="650.0" prefWidth="1120.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cinemareservationver2.Browse">
+   <padding>
+      <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+   </padding>
+   <children>
+      <ScrollPane fx:id="scrollPane" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <VBox prefHeight="957.0" prefWidth="1005.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="209.0" text="RECENTLY ADDED">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane fitToHeight="true" minHeight="220.0" prefHeight="220.0" prefWidth="200.0" styleClass="transparent">
+                     <content>
+                        <HBox fx:id="cardLayout" prefHeight="200.0" prefWidth="1239.0" />
+                     </content>
+                  </ScrollPane>
+                  <GridPane fx:id="gridPaneLayout" alignment="TOP_CENTER" prefHeight="0.0" prefWidth="1005.0" styleClass="transparent">
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
