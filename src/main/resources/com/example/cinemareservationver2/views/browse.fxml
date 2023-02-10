@@ -3,33 +3,31 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="filmLoad" prefHeight="650.0" prefWidth="1120.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cinemareservationver2.Browse">
-   <padding>
-      <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
-   </padding>
+<AnchorPane fx:id="filmLoad" prefHeight="650.0" prefWidth="1120.0" styleClass="transparent" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cinemareservationver2.Browse">
    <children>
-      <ScrollPane fx:id="scrollPane" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" styleClass="body" stylesheets="@../style/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
-            <VBox prefHeight="957.0" prefWidth="1005.0">
+            <VBox alignment="TOP_CENTER" prefHeight="957.0" prefWidth="1005.0" styleClass="body" stylesheets="@../style/style.css">
                <children>
-                  <Label prefHeight="17.0" prefWidth="209.0" text="RECENTLY ADDED">
+                  <Label prefHeight="54.0" prefWidth="316.0" text="RECENTLY ADDED" textFill="WHITE">
                      <font>
-                        <Font size="23.0" />
+                        <Font name="System Bold" size="36.0" />
                      </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="30.0" />
+                     </VBox.margin>
+                     <effect>
+                        <Glow level="0.67" />
+                     </effect>
                   </Label>
-                  <ScrollPane fitToHeight="true" minHeight="220.0" prefHeight="220.0" prefWidth="200.0" styleClass="transparent">
-                     <content>
-                        <HBox fx:id="cardLayout" prefHeight="200.0" prefWidth="1239.0" />
-                     </content>
-                  </ScrollPane>
-                  <GridPane fx:id="gridPaneLayout" alignment="TOP_CENTER" prefHeight="0.0" prefWidth="1005.0" styleClass="transparent">
+                  <GridPane fx:id="gridPaneLayout" alignment="TOP_CENTER" prefHeight="0.0" prefWidth="1005.0">
                      <rowConstraints>
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>

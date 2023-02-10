@@ -22,6 +22,7 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class Account implements Initializable {
+    Login username = new Login();
     @FXML
     private TextField newEmail;
 
@@ -78,30 +79,30 @@ public class Account implements Initializable {
 
     @FXML
     void savePhone(ActionEvent event) {
-
+        System.out.println(username.getUsername());
     }
 
-//    @FXML
-//    void saveUsername(ActionEvent event) {
-//        Boolean username_validate = !newUsername.getText().isBlank();
-//        if (username_validate){
-//            changeUsername();
-//        }
-//    }
-//    public void changeUsername(){
-//        Login username = new Login();
-//        DatabaseConnection connectNow=new DatabaseConnection();
-//        Connection connectionDB = connectNow.getConnection();
-//        String newAccount="UPDATE users SET username = '"+ newUsername.getText() +"' WHERE username = '"+  +"';";
-//        try {
-//            Statement statement=connectionDB.createStatement();
-//            statement.executeUpdate(newAccount);
-//            newUsername.setText("");
-//        }catch (Exception e){
-//            e.printStackTrace();
-//            e.getCause();
-//        }
-//    }
+    @FXML
+    void saveUsername(ActionEvent event) {
+        Boolean username_validate = !newUsername.getText().isBlank();
+        if (username_validate){
+            changeUsername();
+        }
+    }
+    public void changeUsername(){
+        Login username = new Login();
+        DatabaseConnection connectNow=new DatabaseConnection();
+        Connection connectionDB = connectNow.getConnection();
+        String newAccount="UPDATE users SET username = '"+ newUsername.getText() +"' WHERE username = '"+  "';";
+        try {
+            Statement statement=connectionDB.createStatement();
+            statement.executeUpdate(newAccount);
+            newUsername.setText("");
+        }catch (Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
