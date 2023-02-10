@@ -15,14 +15,18 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class Account implements Initializable {
-    Login username = new Login();
+
+    String username = Login.username;
+
     @FXML
     private TextField newEmail;
 
@@ -59,53 +63,61 @@ public class Account implements Initializable {
 
     @FXML
     void saveEmail(ActionEvent event) {
-
+        save(newEmail, "email");
     }
 
     @FXML
     void saveFirstName(ActionEvent event) {
-
+        save(newFirstName, "firstname");
     }
 
     @FXML
     void saveLastName(ActionEvent event) {
-
+        save(newLastName, "lastname");
     }
 
     @FXML
     void savePassword(ActionEvent event) {
-
+        save(newPassword, "password");
     }
 
     @FXML
     void savePhone(ActionEvent event) {
-        System.out.println(username.getUsername());
+        save(newPhone, "phonenumber");
     }
 
     @FXML
     void saveUsername(ActionEvent event) {
-        Boolean username_validate = !newUsername.getText().isBlank();
-        if (username_validate){
-            changeUsername();
-        }
+        save(newUsername, "username");
     }
-    public void changeUsername(){
-        Login username = new Login();
-        DatabaseConnection connectNow=new DatabaseConnection();
-        Connection connectionDB = connectNow.getConnection();
-        String newAccount="UPDATE users SET username = '"+ newUsername.getText() +"' WHERE username = '"+  "';";
-        try {
-            Statement statement=connectionDB.createStatement();
-            statement.executeUpdate(newAccount);
-            newUsername.setText("");
-        }catch (Exception e){
-            e.printStackTrace();
-            e.getCause();
-        }
+
+    void save(TextField field, String column) {
+        boolean validate = !field.getText().isBlank();
+        if(validate) {
+            DatabaseConnection connectNow = new DatabaseConnection();
+            Connection connectionDB = connectNow.getConnection();
+            String update = "UPDATE users SET " + column + "='" + field.getText() + "' WHERE username='" + username + "'";
+            try {
+                Statement statement = connectionDB.createStatement();
+                statement.executeUpdate(update);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            //TODO add success message
+            field.clear();
+        } else { error(); }
+    }
+
+    void error() {
+        JOptionPane.showMessageDialog(null,
+                "Please, fill the field.",
+                "Error",
+                JOptionPane.ERROR_MESSAGE);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
 }

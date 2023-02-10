@@ -10,5 +10,8 @@
         <module name="Cinema-reservation-system" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="CinemaRes" target="19" />
+    </bytecodeTargetLevel>
   </component>
 </project>

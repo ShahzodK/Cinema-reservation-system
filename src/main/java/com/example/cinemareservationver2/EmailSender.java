@@ -1,4 +1,7 @@
 package com.example.cinemareservationver2;
+
+import com.example.cinemareservationver2.controllers.Login;
+
 import javax.mail.*;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
@@ -8,6 +11,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class EmailSender {
+
+    static String name = Login.username;
+
     public static void sendEmail(String recipient) throws Exception {
         System.out.println("Preparing to send email...");
         Properties properties = new Properties();
@@ -36,7 +42,7 @@ public class EmailSender {
             message.setFrom(new InternetAddress(myAccountEmail));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
             message.setSubject("Ticket confirmation");
-            message.setText("You have successfully booked a ticket!");
+            message.setText("Thanks "+name+"! You have successfully booked the ticket");
             return message;
         } catch (AddressException ex) {
             Logger.getLogger(EmailSender.class.getName()).log(Level.SEVERE, null, ex);

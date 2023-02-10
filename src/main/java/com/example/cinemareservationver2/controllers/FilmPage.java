@@ -22,16 +22,17 @@ public class FilmPage implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        HBox posterinforms=new HBox();
+        HBox posterinforms = new HBox();
         posterinforms.setPrefHeight(400);
         posterinforms.setPrefWidth(700);
         ImageView poster = new ImageView();
         Label name = new Label();
         name.setFont(new Font("Arial", 25));
         name.setText("OLIMJON");
-        Image image=new Image(getClass().getResourceAsStream("images/image/avatar.jpg"),200,200,true,true);
+        Image image = new Image(getClass().getResourceAsStream("images/image/avatar.jpg"), 200, 200, true, true);
         poster.setImage(image);
-        filmviewbox.getChildren().addAll(poster,name);
+        filmviewbox.getChildren().addAll(poster, name);
 
     }
+}
 

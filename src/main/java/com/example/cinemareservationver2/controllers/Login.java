@@ -22,8 +22,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class Login {
-    public static String username ;
-
     Encryptor encrypt = new Encryptor();
 
     @FXML
@@ -36,6 +34,8 @@ public class Login {
     private TextField usernameText;
     private Boolean signinBool=false;
 
+    public static String username;
+    public static int userid;
 
     @FXML
     void gotoregistration(ActionEvent event) throws IOException {
@@ -70,8 +70,6 @@ public class Login {
                 primaryStage.setFullScreen(true);
                 primaryStage.setScene(scene);
                 primaryStage.show();
-                username = usernameText.getText();
-                System.out.println(username);
             }
         }
         else {
@@ -90,6 +88,8 @@ public class Login {
                 if (queryResult.getInt(1)==1){
 
                     signinBool=true;
+                    username = usernameText.getText();
+                    userid = queryResult.getInt("id");
                 }
                 else{
                     signinLabel.setText("Invalid login. Please try again.");
@@ -103,8 +103,5 @@ public class Login {
             e.getCause();
 
         }
-    }
-    public String getUsername(){
-        return username;
     }
 }
