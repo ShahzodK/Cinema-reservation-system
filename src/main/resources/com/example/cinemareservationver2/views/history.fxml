@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="1120.0" styleClass="body" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cinemareservationver2.controllers.History">
+   <children>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label text="History" textFill="WHITE">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="62.0" prefWidth="1120.0" styleClass="transparent" stylesheets="@../style/style.css">
+               <children>
+                  <TextField prefHeight="10.0" prefWidth="500.0" styleClass="search-text-field" stylesheets="@../style/style.css">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </TextField>
+                  <Button mnemonicParsing="false" prefHeight="10.0" prefWidth="100.0" styleClass="search-button" stylesheets="@../style/style.css" text="Search">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="1.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <effect>
+                  <Glow level="0.6" />
+               </effect>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="50.0" />
+               </VBox.margin>
+            </HBox>
+            <TableView prefHeight="388.0" prefWidth="1019.0" styleClass="table-itself" stylesheets="@../style/style.css" tableMenuButtonVisible="true">
+              <columns>
+                  <TableColumn maxWidth="2000.0" prefWidth="58.39999467134476" text="ID" />
+                <TableColumn prefWidth="224.0" text="Movie name" />
+                  <TableColumn prefWidth="112.0" text="Time" />
+                  <TableColumn prefWidth="148.79995727539062" text="Ticket number" />
+                  <TableColumn prefWidth="124.00006103515625" text="Number of tickets" />
+                  <TableColumn prefWidth="139.2000732421875" text="Price" />
+              </columns>
+               <VBox.margin>
+                  <Insets left="100.0" right="100.0" />
+               </VBox.margin>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

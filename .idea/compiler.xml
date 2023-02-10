@@ -6,11 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="CinemaRes" />
+        <module name="CinemaReservationVer2" />
+        <module name="Cinema-reservation-system-main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="CinemaRes" target="19" />
-    </bytecodeTargetLevel>
   </component>
 </project>
