@@ -1,0 +1,1 @@
+admin-panel/view/view-win32-x64/view.exe filter=lfs diff=lfs merge=lfs -text

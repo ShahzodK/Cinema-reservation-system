@@ -1,0 +1,75 @@
+<div class="modal-wrapper">
+  <header>
+    <button class="modal-close-button" (click)="dialogRef.close()">&#10006;</button>
+    <h3 *ngIf="data.isNew; else updateMovieHeading">Create Movie</h3>
+    <ng-template #updateMovieHeading><h3> Update Movie</h3></ng-template>
+  </header>
+    <form [formGroup]="movieForm" (ngSubmit)="onSubmit()" #modalForm="ngForm">
+    <mat-form-field>
+      <mat-label for="name">Name</mat-label>
+      <input id="name" type="text" formControlName="name" matInput>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-label for="genre">Genre</mat-label>
+      <input id="genre" type="text" formControlName="genre" matInput>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-label for="img">Image(link)</mat-label>
+      <input id="img" type="text" formControlName="img" matInput>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-label for="description">Description</mat-label>
+      <input id="description" type="text" formControlName="description" matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="imdb">IMDB Rating</mat-label>
+      <input id="imdb" type="number" formControlName="imdb" matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="year">Year</mat-label>
+      <input id="year" type="number" formControlName="year" matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="country">Country</mat-label>
+      <input id="country" type="text" formControlName="country" matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="director">Director</mat-label>
+      <input id="director" type="text" formControlName="director" matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="actors">Actors</mat-label>
+      <input id="actors" type="text" formControlName="actors" matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="language">Language</mat-label>
+      <input id="language" type="text" formControlName="language" matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="price">Price</mat-label>
+      <input id="price" type="number" formControlName="price" matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label for="tickets">Tickets</mat-label>
+      <input id="tickets" type="number" formControlName="tickets" matInput>
+    </mat-form-field>
+
+    <button *ngIf="data.isNew; else updateMovieButton" mat-raised-button color="primary" class="create-movie-button">Create</button>
+    <ng-template #updateMovieButton> <button mat-raised-button color="primary" class="create-movie-button">Update</button></ng-template>
+
+  </form>
+</div>

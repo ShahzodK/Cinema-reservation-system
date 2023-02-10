@@ -1,0 +1,86 @@
+<header><h2>Admin panel</h2></header>
+<div class="statistics">
+  <app-pie-chart></app-pie-chart>
+</div>
+<div class="movies-list">
+  <button mat-raised-button color="primary" class="create-movie-button" (click)="showModal(true)">Create Movie</button>
+  <table mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef class="table-header" mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let movie"> {{this.movie?.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef class="table-header"> Image </th>
+        <td mat-cell *matCellDef="let movie"> {{this.movie?.image}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="genre">
+        <th mat-header-cell *matHeaderCellDef class="table-header" mat-sort-header> Genre </th>
+        <td mat-cell *matCellDef="let movie"> {{this.movie?.genre}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef class="table-header" mat-sort-header> Description </th>
+        <td mat-cell *matCellDef="let movie"> {{this.movie?.description}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="imdb">
+        <th mat-header-cell *matHeaderCellDef class="table-header" mat-sort-header> IMDB Rating </th>
+        <td mat-cell *matCellDef="let movie"> {{this.movie?.imdb}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="year">
+        <th mat-header-cell *matHeaderCellDef class="table-header" mat-sort-header> Year </th>
+        <td mat-cell *matCellDef="let movie"> {{this.movie?.year}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="country">
+        <th mat-header-cell *matHeaderCellDef class="table-header" mat-sort-header> Country </th>
+        <td mat-cell *matCellDef="let movie"> {{this.movie?.country}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="director">
+        <th mat-header-cell *matHeaderCellDef class="table-header" mat-sort-header> Director </th>
+        <td mat-cell *matCellDef="let movie"> {{this.movie?.director}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actors">
+        <th mat-header-cell *matHeaderCellDef class="table-header" mat-sort-header> Actors </th>
+        <td mat-cell *matCellDef="let movie"> {{this.movie?.actors}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="language">
+        <th mat-header-cell *matHeaderCellDef class="table-header" mat-sort-header> Language </th>
+        <td mat-cell *matCellDef="let movie"> {{this.movie?.language}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef class="table-header" mat-sort-header> Price </th>
+        <td mat-cell *matCellDef="let movie"> {{this.movie?.price}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="purchasedTickets">
+        <th mat-header-cell *matHeaderCellDef class="table-header" mat-sort-header> Purchased Tickets </th>
+        <td mat-cell *matCellDef="let movie"> {{this.movie?.purchasedTickets}} ({{this.movie?.purchasedTickets / this.movie?.tickets | percent : "1.2"}}) </td>
+      </ng-container>
+
+      <ng-container matColumnDef="tickets">
+        <th mat-header-cell *matHeaderCellDef class="table-header" mat-sort-header> Tickets </th>
+        <td mat-cell *matCellDef="let movie"> {{this.movie?.tickets}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="update">
+        <th mat-header-cell *matHeaderCellDef class="table-header"> Edit </th>
+        <td mat-cell *matCellDef="let movie"><button mat-raised-button color="primary" (click)="showModal(false,movie)">Edit</button></td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef class="table-header"> Delete </th>
+        <td mat-cell *matCellDef="let movie"><button mat-raised-button color="warn" (click)="showConfirmationModal(movie.id)">Delete</button></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
