@@ -124,7 +124,7 @@ public class Browse implements Initializable {
                     public void handle(MouseEvent mouseEvent) {
                         Node node;
                         try {
-                            node = (Node)FXMLLoader.load(HelloApplication.class.getResource("views/search.fxml"));
+                            node = (Node)FXMLLoader.load(HelloApplication.class.getResource("views/filmPage.fxml"));
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
