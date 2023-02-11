@@ -1,4 +1,4 @@
-package com.example.cinemareservationver2.controllers;
+package com.example.cinemareservationver2;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -34,4 +34,5 @@ public class FilmPage implements Initializable {
         filmviewbox.getChildren().addAll(poster,name);
 
     }
+}
 

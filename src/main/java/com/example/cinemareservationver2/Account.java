@@ -1,7 +1,5 @@
-package com.example.cinemareservationver2.controllers;
+package com.example.cinemareservationver2;
 
-import com.example.cinemareservationver2.DatabaseConnection;
-import com.example.cinemareservationver2.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,9 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.paint.ImagePattern;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 

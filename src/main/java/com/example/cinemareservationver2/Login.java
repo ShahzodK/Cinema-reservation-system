@@ -1,4 +1,4 @@
-package com.example.cinemareservationver2.controllers;
+package com.example.cinemareservationver2;
 
 import com.example.cinemareservationver2.DatabaseConnection;
 import com.example.cinemareservationver2.Encryptor;
