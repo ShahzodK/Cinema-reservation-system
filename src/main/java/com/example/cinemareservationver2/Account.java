@@ -1,7 +1,5 @@
-package com.example.cinemareservationver2.controllers;
+package com.example.cinemareservationver2;
 
-import com.example.cinemareservationver2.DatabaseConnection;
-import com.example.cinemareservationver2.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,9 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.paint.ImagePattern;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -22,6 +17,7 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class Account implements Initializable {
+    Login username = new Login();
     @FXML
     private TextField newEmail;
 
@@ -78,30 +74,30 @@ public class Account implements Initializable {
 
     @FXML
     void savePhone(ActionEvent event) {
-
+        System.out.println(username.getUsername());
     }
 
-//    @FXML
-//    void saveUsername(ActionEvent event) {
-//        Boolean username_validate = !newUsername.getText().isBlank();
-//        if (username_validate){
-//            changeUsername();
-//        }
-//    }
-//    public void changeUsername(){
-//        Login username = new Login();
-//        DatabaseConnection connectNow=new DatabaseConnection();
-//        Connection connectionDB = connectNow.getConnection();
-//        String newAccount="UPDATE users SET username = '"+ newUsername.getText() +"' WHERE username = '"+  +"';";
-//        try {
-//            Statement statement=connectionDB.createStatement();
-//            statement.executeUpdate(newAccount);
-//            newUsername.setText("");
-//        }catch (Exception e){
-//            e.printStackTrace();
-//            e.getCause();
-//        }
-//    }
+    @FXML
+    void saveUsername(ActionEvent event) {
+        Boolean username_validate = !newUsername.getText().isBlank();
+        if (username_validate){
+            changeUsername();
+        }
+    }
+    public void changeUsername(){
+        Login username = new Login();
+        DatabaseConnection connectNow=new DatabaseConnection();
+        Connection connectionDB = connectNow.getConnection();
+        String newAccount="UPDATE users SET username = '"+ newUsername.getText() +"' WHERE username = '"+  "';";
+        try {
+            Statement statement=connectionDB.createStatement();
+            statement.executeUpdate(newAccount);
+            newUsername.setText("");
+        }catch (Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

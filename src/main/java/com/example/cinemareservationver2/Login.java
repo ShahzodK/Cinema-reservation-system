@@ -1,4 +1,4 @@
-package com.example.cinemareservationver2.controllers;
+package com.example.cinemareservationver2;
 
 import com.example.cinemareservationver2.DatabaseConnection;
 import com.example.cinemareservationver2.Encryptor;
@@ -22,6 +22,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class Login {
+    public static String username ;
+
     Encryptor encrypt = new Encryptor();
 
     @FXML
@@ -68,6 +70,8 @@ public class Login {
                 primaryStage.setFullScreen(true);
                 primaryStage.setScene(scene);
                 primaryStage.show();
+                username = usernameText.getText();
+                System.out.println(username);
             }
         }
         else {
@@ -99,5 +103,8 @@ public class Login {
             e.getCause();
 
         }
+    }
+    public String getUsername(){
+        return username;
     }
 }

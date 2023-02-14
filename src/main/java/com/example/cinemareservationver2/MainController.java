@@ -1,4 +1,4 @@
-package com.example.cinemareservationver2.controllers;
+package com.example.cinemareservationver2;
 
 import com.example.cinemareservationver2.HelloApplication;
 import javafx.event.ActionEvent;
