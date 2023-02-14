@@ -170,13 +170,14 @@ public class Browse implements Initializable {
                 String datfilmposter= rs.getString("img");
 
                 VBox filmVbox=new VBox();
-                filmVbox.setPrefWidth(200);
+                filmVbox.setPrefWidth(250);
                 ImageView filmimg=new ImageView();
-                Image filmimage=new Image(getClass().getResourceAsStream("images/image/"+datfilmposter),200,400,true,true);
+                Image filmimage=new Image(getClass().getResourceAsStream("images/image/"+datfilmposter),200,200,true,true);
                 filmimg.setImage(filmimage);
                 Label filmname=new Label();
-                filmname.setFont(new Font("Arial",15));
-                filmname.setPrefWidth(200);
+                filmname.setFont(new Font("Arial",20));
+                filmname.setTextFill(Color.WHITE);
+                filmname.setPrefWidth(250);
                 filmname.setText(datfilmname);
                 filmVbox.getChildren().addAll(filmimg,filmname);
 
@@ -184,24 +185,25 @@ public class Browse implements Initializable {
                     column=0;
                     ++row;
                 }
+                gridPaneLayout.setBackground(Background.fill(Color.TRANSPARENT));
                 gridPaneLayout.add(filmVbox,column++,row);
-                GridPane.setMargin(filmVbox,new Insets(20));
+                GridPane.setMargin(filmVbox,new Insets(10));
                 filmVbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent mouseEvent) {
                         Node node;
                         try {
                             FilmPage filmPage=new FilmPage();
-                            setChoosennam(filmname.getText());
-                            filmPage.setChoosenfilmname(filmname.getText());
+                            setChoosennam(datfilmname);
+                            filmPage.setChoosenfilmname(datfilmname);
                             node = (Node)FXMLLoader.load(HelloApplication.class.getResource("views/filmPage.fxml"));
-
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
                         filmLoad.getChildren().setAll(node);
                     }
                 });
+
             }
         }
         catch (Exception e){
