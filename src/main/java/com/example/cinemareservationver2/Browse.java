@@ -36,7 +36,19 @@ public class Browse implements Initializable {
     @FXML
     private HBox cardLayout;
     @FXML
+
     private GridPane gridPaneLayout;
+
+    public static String getChoosennam() {
+        return choosennam;
+    }
+
+    public static void setChoosennam(String choosennam) {
+        Browse.choosennam = choosennam;
+    }
+
+    public static String choosennam="1";
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         DatabaseConnection connectNow=new DatabaseConnection();
@@ -54,7 +66,6 @@ public class Browse implements Initializable {
                 id[i]=rs.getInt("id");
                 rs.next();
             }
-            System.out.println(Arrays.toString(id));
         }
 
         catch (Exception e){
@@ -124,6 +135,9 @@ public class Browse implements Initializable {
                     public void handle(MouseEvent mouseEvent) {
                         Node node;
                         try {
+                            FilmPage filmPage=new FilmPage();
+                            setChoosennam(datname);
+                            filmPage.setChoosenfilmname(datname);
                             node = (Node)FXMLLoader.load(HelloApplication.class.getResource("views/filmPage.fxml"));
                         } catch (IOException e) {
                             throw new RuntimeException(e);
@@ -131,10 +145,6 @@ public class Browse implements Initializable {
                         filmLoad.getChildren().setAll(node);
                     }
                 });
-//                for(Node n:recvbox.getChildren()){
-//                    String text=((Label) n).getText();
-//                    System.out.println(text);
-//                }
 
             }
             catch (Exception e){
@@ -176,7 +186,22 @@ public class Browse implements Initializable {
                 }
                 gridPaneLayout.add(filmVbox,column++,row);
                 GridPane.setMargin(filmVbox,new Insets(20));
+                filmVbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        Node node;
+                        try {
+                            FilmPage filmPage=new FilmPage();
+                            setChoosennam(filmname.getText());
+                            filmPage.setChoosenfilmname(filmname.getText());
+                            node = (Node)FXMLLoader.load(HelloApplication.class.getResource("views/filmPage.fxml"));
 
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                        filmLoad.getChildren().setAll(node);
+                    }
+                });
             }
         }
         catch (Exception e){
