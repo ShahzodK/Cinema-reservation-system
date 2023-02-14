@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" styleClass="body" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cinemareservationver2.Payment">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" styleClass="body" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cinemareservationver2.controllers.Payment">
    <children>
       <Button fx:id="btnback" layoutY="289.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="42.0" prefWidth="49.0" styleClass="navbar-button" stylesheets="@../style/style.css">
          <graphic>

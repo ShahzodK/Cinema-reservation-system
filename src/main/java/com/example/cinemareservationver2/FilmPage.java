@@ -1,6 +1,7 @@
 package com.example.cinemareservationver2;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.control.ComboBox;
@@ -70,42 +71,39 @@ public class FilmPage implements Initializable {
             posterinforms.setPrefWidth(700);
 
             ImageView poster = new ImageView();
-            Image image=new Image(getClass().getResourceAsStream("images/image/"+choosenfilmimg),250,400,true,true);
+            Image image=new Image(getClass().getResourceAsStream("images/image/"+choosenfilmimg),300,400,true,true);
             poster.setImage(image);
 
             Label name = new Label();
-            name.setFont(new Font("Arial", 30));
+            name.setFont(new Font("Arial", 36));
             name.setText(choosenfilmname);
-            name.setStyle("-fx-text-fill: green;");
+            name.setStyle("-fx-text-fill: white;");
 
             Label genre = new Label();
             genre.setFont(new Font("Arial",  25));
-            genre.setStyle("-fx-text-fill: green;");
+            genre.setStyle("-fx-text-fill: white;");
             genre.setText(choosenfilmgenre);
 
             Label country = new Label();
-            country.setFont(new Font("Arial", 30));
+            country.setFont(new Font("Arial", 25));
             country.setText(choosenfilmcountry);
-            country.setStyle("-fx-text-fill: green;");
+            country.setStyle("-fx-text-fill: white;");
 
             Label year = new Label();
-            year.setFont(new Font("Arial", 30));
+            year.setFont(new Font("Arial", 25));
             year.setText(choosenfilmyear+"");
-            year.setStyle("-fx-text-fill: green;");
+            year.setStyle("-fx-text-fill: white;");
 
             Label score = new Label();
-            score.setFont(new Font("Arial", 30));
+            score.setFont(new Font("Arial", 32));
             score.setText(choosenfilmimdb+"/10");
-            score.setStyle("-fx-text-fill: green;");
+            score.setStyle("-fx-text-fill: white;");
 
             Text description=new Text();
             description.setWrappingWidth(400);
-            description.setFont(new Font("Arial",22));
+            description.setFont(new Font("Arial",25));
             description.setText(choosenfilmdescription);
-
-            Separator separatorposterinform=new Separator();
-            separatorposterinform.setOrientation(Orientation.VERTICAL);
-            separatorposterinform.setMaxHeight(300);
+            description.setStyle("-fx-fill: white");
 
             VBox informantions=new VBox();
             informantions.setPrefWidth(400);
@@ -124,16 +122,18 @@ public class FilmPage implements Initializable {
             Bookingpane.setBackground(new Background(new BackgroundFill(Color.WHITE,null,null)));
 
 
-            informantions.getChildren().addAll(name,separatorinform,genre,country,year,score,separatorinform2,description);
-            filmviewbox.getChildren().addAll(poster,separatorposterinform,informantions);
+            informantions.getChildren().addAll(name,genre,country,year,score,separatorinform2,description);
+            informantions.setPadding(new Insets(30));
+            informantions.setSpacing(15);
+            filmviewbox.getChildren().addAll(poster,informantions);
             filmviewbox.setAlignment(Pos.CENTER);
             choosenfilm.setBackground(new Background(new BackgroundFill(Color.WHITE,null,null)));
             choosenfilm.setSpacing(15);
 
             Label bookingtitle=new Label();
             bookingtitle.setText("BOOK THE TICKET");
-            bookingtitle.setFont(new Font("Arial", 35));
-            bookingtitle.setStyle("-fx-text-fill: green;");
+            bookingtitle.setFont(new Font("Arial", 20));
+            bookingtitle.setStyle("-fx-text-fill: white;");
 
             Bookingpane.getChildren().add(bookingtitle);
             Bookingpane.setAlignment(Pos.BASELINE_CENTER);

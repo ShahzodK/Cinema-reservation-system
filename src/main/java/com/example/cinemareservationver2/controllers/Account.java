@@ -1,5 +1,7 @@
-package com.example.cinemareservationver2;
+package com.example.cinemareservationver2.controllers;
 
+import com.example.cinemareservationver2.DatabaseConnection;
+import com.example.cinemareservationver2.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

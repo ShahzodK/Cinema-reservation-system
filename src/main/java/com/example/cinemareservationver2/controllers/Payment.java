@@ -1,4 +1,4 @@
-package com.example.cinemareservationver2;
+package com.example.cinemareservationver2.controllers;
 
 import com.example.cinemareservationver2.DatabaseConnection;
 import com.example.cinemareservationver2.EmailSender;
