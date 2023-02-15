@@ -4,27 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c413c659-d93b-4926-b474-879f2c74209e" name="Changes" comment="">
+    <list default="true" id="c413c659-d93b-4926-b474-879f2c74209e" name="Changes" comment="Changes 2.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/controllers/Account.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/Browse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/Browse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/Faq.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/controllers/Faq.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/FilmPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/FilmPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/History.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/controllers/History.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/controllers/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/controllers/Payment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/controllers/Registration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/controllers/Search.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cinemareservationver2/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemareservationver2/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cinemareservationver2/views/Payment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemareservationver2/views/Payment.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cinemareservationver2/views/account.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemareservationver2/views/account.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cinemareservationver2/views/faq.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemareservationver2/views/faq.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cinemareservationver2/views/filmPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemareservationver2/views/filmPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cinemareservationver2/views/history.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemareservationver2/views/history.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cinemareservationver2/views/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemareservationver2/views/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cinemareservationver2/views/registration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemareservationver2/views/registration.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cinemareservationver2/views/search.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemareservationver2/views/search.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/controllers/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/controllers/Search.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +42,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Leopard/IdeaProjects/Cinema-reservation-system",
+    "last_opened_file_path": "C:/Users/Leopard/IdeaProjects/Cinema-reservation-system-github",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -76,11 +61,27 @@
       <option name="presentableId" value="Default" />
       <updated>1676122278307</updated>
       <workItem from="1676122279960" duration="728000" />
-      <workItem from="1676366764235" duration="6781000" />
+      <workItem from="1676366764235" duration="6837000" />
+      <workItem from="1676396222387" duration="215000" />
+      <workItem from="1676398940740" duration="124000" />
+      <workItem from="1676440128996" duration="453000" />
+      <workItem from="1676443382065" duration="5192000" />
     </task>
+    <task id="LOCAL-00001" summary="Changes 2.0">
+      <created>1676376174788</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1676376174788</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Changes 2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes 2.0" />
   </component>
 </project>

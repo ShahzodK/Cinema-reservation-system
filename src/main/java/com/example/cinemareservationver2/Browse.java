@@ -146,14 +146,18 @@ public class Browse implements Initializable {
 //////////////////////////////CARD FOR ALL FILMS////////////////////////////////
 
         try{
-
+            String filmnumberofrows="SELECT COUNT(*) FROM movies;";
+            Statement filmrows=connectionDB.createStatement();
+            ResultSet rsfr=filmrows.executeQuery(filmnumberofrows);
+            rsfr.next();
+            int filmnumbers=rsfr.getInt("COUNT(*)");
             Statement statement=connectionDB.createStatement();
             String datafilmname="SELECT * FROM movies ORDER BY id DESC;";
             ResultSet rs= statement.executeQuery(datafilmname);
 
             int column=0;
             int row=1;
-            for(int j=0;j<7;j++){
+            for(int j=0;j<filmnumbers;j++){
                 rs.next();
                 String datfilmname= rs.getString("name");
                 String datfilmposter= rs.getString("img");
