@@ -14,7 +14,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,16 +27,33 @@ public class Search {
     private GridPane gridPaneLayout;
 
     @FXML
-    void showSearchInfo(javafx.event.ActionEvent event) {
+    void search(javafx.event.ActionEvent event) {
+        gridPaneLayout.getChildren().clear();
+        if(!inputSearch.getText().isBlank()) {
+            showSearchInfo();
+        } else {
+            JOptionPane.showMessageDialog(null,
+                    "Please, fill the search field.",
+                    "Message",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    @FXML
+    void showSearchInfo() {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectionDB = connectNow.getConnection();
         String getInfo = "SELECT * FROM movies WHERE lower(name) LIKE '%"+inputSearch.getText()+"%'";
         try {
             Statement statement = connectionDB.createStatement();
             ResultSet rs = statement.executeQuery(getInfo);
-            while(rs.next()){
-                String output = rs.getString("name");
-                if(output!=null){
+            if(!rs.isBeforeFirst()){
+                JOptionPane.showMessageDialog(null,
+                        "There is no such kind of film yet",
+                        "Message",
+                        JOptionPane.ERROR_MESSAGE);
+                inputSearch.clear();
+            } else {
+                while(rs.next()){
                     String datfilmname= rs.getString("name");
                     String datfilmposter= rs.getString("img");
                     VBox filmVbox=new VBox();
@@ -57,14 +73,9 @@ public class Search {
                     gridPaneLayout.setBackground(Background.fill(Color.TRANSPARENT));
                     gridPaneLayout.add(filmVbox,0,0);
                     GridPane.setMargin(filmVbox,new Insets(30));
-                } else {
-                    JOptionPane.showMessageDialog(null,
-                            "There is no such kind of film yet",
-                            "Message",
-                            JOptionPane.ERROR_MESSAGE);
+                    inputSearch.clear();
                 }
             }
-
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

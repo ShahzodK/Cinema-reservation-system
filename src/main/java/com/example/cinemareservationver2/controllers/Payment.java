@@ -28,7 +28,7 @@ import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.zip.DataFormatException;
 
-public class Payment implements Initializable {
+public class Payment {
     @FXML
     private Button btnback, btnhumo, btnms, btnuz, btnvisa, completeCheckout, exit_button;
     @FXML
@@ -41,7 +41,7 @@ public class Payment implements Initializable {
     private Label orderid, moviename, showcasedate, purchaser, ticketprice, ticketquantity, totalprice;
 
     //TODO get variables from Login and Movie classes
-    private int userid = 3;
+    private int userid = 4;
     private int movieid = 5;
     private int numberOfTickets = 2;
 
@@ -50,9 +50,6 @@ public class Payment implements Initializable {
     private boolean paymentInfoValid, bool;
     private boolean toMainPage = true;
     Stage stage;
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {}
 
     @FXML
     public void handleClicks(ActionEvent event) throws Exception {
@@ -145,14 +142,27 @@ public class Payment implements Initializable {
             e.getCause();
         }
     }
-
+    String movieList;
     private void addOrder() {
+
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectionDB = connectNow.getConnection();
         String newOrder = "INSERT INTO orders(userid, movieid, ticketnumber, totalprice) VALUES ('" + userid + "','" + movieid + "','" + ticketNumber + "','" + total + "')";
+        String getPurchasedMovies = "SELECT * FROM users WHERE id = '" + userid + "';";
         try {
             Statement statement = connectionDB.createStatement();
             statement.executeUpdate(newOrder);
+            ResultSet purchasedMovies = statement.executeQuery(getPurchasedMovies);
+            while(purchasedMovies.next()) {
+                if(purchasedMovies.getString("purchasedMovies").charAt(1)=='}'){
+                    movieList=(purchasedMovies.getString("purchasedMovies").replace("}", "\\'" + movie + "\\':" + numberOfTickets + "}"));
+                } else {
+                    movieList=(purchasedMovies.getString("purchasedMovies").replace("}", ",\\'" + movie + "\\':" + numberOfTickets + "}"));
+                }
+            }
+            String update = "UPDATE users SET purchasedMovies = '" + movieList + "' WHERE id = " + userid + ";";
+            statement.executeUpdate(update);
+//            System.out.println(movieList);
         } catch (SQLException e) {
             e.printStackTrace();
         }
