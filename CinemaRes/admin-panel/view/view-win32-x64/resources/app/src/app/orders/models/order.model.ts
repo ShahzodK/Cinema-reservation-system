@@ -4,4 +4,6 @@ export interface IOrder {
   movieid: number;
   ticketid: number;
   totalprice: number;
+  movie: string;
+  username: string;
 }

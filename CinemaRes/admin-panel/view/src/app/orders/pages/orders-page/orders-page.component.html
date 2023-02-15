@@ -7,12 +7,12 @@
 
   <ng-container matColumnDef="username">
     <th mat-header-cell *matHeaderCellDef class="table-header"> Username </th>
-    <td mat-cell *matCellDef="let order"> {{this.order?.userid}} </td>
+    <td mat-cell *matCellDef="let order"> {{this.order?.username}} </td>
   </ng-container>
 
   <ng-container matColumnDef="movie">
     <th mat-header-cell *matHeaderCellDef class="table-header"> Movie </th>
-    <td mat-cell *matCellDef="let order">{{this.order.movieid}}</td>
+    <td mat-cell *matCellDef="let order">{{this.order.movie}}</td>
   </ng-container>
 
   <ng-container matColumnDef="ticket">

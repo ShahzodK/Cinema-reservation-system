@@ -10,7 +10,7 @@ import { IOrder } from '../orders/models/order.model';
 })
 export class MoviesService {
 
-  public host = 'https://localhost:5000/';
+  public host = 'http://localhost:5000/';
 
   public movies: BehaviorSubject<IMovie[]> = new BehaviorSubject<IMovie[]>([]);
 
