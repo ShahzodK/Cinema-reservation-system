@@ -47,14 +47,14 @@
                   <Insets bottom="20.0" top="50.0" />
                </VBox.margin>
             </HBox>
-            <TableView prefHeight="388.0" prefWidth="1019.0" styleClass="table-itself" stylesheets="@../style/style.css" tableMenuButtonVisible="true">
+            <TableView fx:id="table" prefHeight="388.0" prefWidth="1019.0" styleClass="table-itself" stylesheets="@../style/style.css" tableMenuButtonVisible="true">
               <columns>
-                  <TableColumn maxWidth="2000.0" prefWidth="58.39999467134476" text="ID" />
-                <TableColumn prefWidth="224.0" text="Movie name" />
-                  <TableColumn prefWidth="112.0" text="Time" />
-                  <TableColumn prefWidth="148.79995727539062" text="Ticket number" />
-                  <TableColumn prefWidth="124.00006103515625" text="Number of tickets" />
-                  <TableColumn prefWidth="139.2000732421875" text="Price" />
+                  <TableColumn fx:id="id" maxWidth="2000.0" prefWidth="58.39999467134476" text="ID" />
+                <TableColumn fx:id="movieName" prefWidth="224.0" text="Movie name" />
+                  <TableColumn fx:id="time" prefWidth="112.0" text="Time" />
+                  <TableColumn fx:id="ticketNumber" prefWidth="148.79995727539062" text="Ticket number" />
+                  <TableColumn fx:id="numberOfTickets" prefWidth="124.00006103515625" text="Number of tickets" />
+                  <TableColumn fx:id="price" prefWidth="139.2000732421875" text="Price" />
               </columns>
                <VBox.margin>
                   <Insets left="100.0" right="100.0" />
