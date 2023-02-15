@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c413c659-d93b-4926-b474-879f2c74209e" name="Changes" comment="Changes 2.0">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/Browse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/Browse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/FilmPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/FilmPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/controllers/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/controllers/Search.java" afterDir="false" />
-    </list>
+    <list default="true" id="c413c659-d93b-4926-b474-879f2c74209e" name="Changes" comment="Film Page complete" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,7 +36,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Leopard/IdeaProjects/Cinema-reservation-system-github",
+    "last_opened_file_path": "C:/Users/Leopard/IdeaProjects/new",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -65,7 +59,7 @@
       <workItem from="1676396222387" duration="215000" />
       <workItem from="1676398940740" duration="124000" />
       <workItem from="1676440128996" duration="453000" />
-      <workItem from="1676443382065" duration="5192000" />
+      <workItem from="1676443382065" duration="5509000" />
     </task>
     <task id="LOCAL-00001" summary="Changes 2.0">
       <created>1676376174788</created>
@@ -74,7 +68,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676376174788</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Film Page complete">
+      <created>1676465192129</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1676465192129</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -82,6 +83,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changes 2.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes 2.0" />
+    <MESSAGE value="Film Page complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="Film Page complete" />
   </component>
 </project>
