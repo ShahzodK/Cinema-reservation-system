@@ -12,18 +12,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1120.0" styleClass="transparent" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cinemareservationver2.controllers.Search">
+<AnchorPane prefHeight="650.0" prefWidth="1120.0" styleClass="body" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cinemareservationver2.controllers.Search">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" styleClass="transparent" stylesheets="@../style/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="transparent" stylesheets="@../style/style.css">
                <children>
-                  <TextField prefHeight="40.0" prefWidth="800.0" styleClass="search-text-field" stylesheets="@../style/style.css">
+                  <TextField fx:id="inputSearch" prefHeight="40.0" prefWidth="800.0" styleClass="search-text-field" stylesheets="@../style/style.css">
                      <HBox.margin>
                         <Insets right="20.0" />
                      </HBox.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="search-button" stylesheets="@../style/style.css" text="Search">
+                  <Button mnemonicParsing="false" onAction="#showSearchInfo" prefHeight="40.0" prefWidth="100.0" styleClass="search-button" stylesheets="@../style/style.css" text="Search">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -36,7 +36,7 @@
                   <Insets top="40.0" />
                </VBox.margin>
             </HBox>
-            <GridPane prefHeight="552.0" prefWidth="1120.0">
+            <GridPane fx:id="gridPaneLayout" prefHeight="552.0" prefWidth="1120.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

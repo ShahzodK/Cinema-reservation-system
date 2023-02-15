@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="650.0" prefWidth="1120.0" styleClass="transparent" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cinemareservationver2.controllers.Faq">
    <children>
@@ -12,5 +12,6 @@
             <Font size="65.0" />
          </font>
       </Label>
+      <DatePicker fx:id="datePicker" layoutX="111.0" layoutY="99.0" />
    </children>
 </AnchorPane>

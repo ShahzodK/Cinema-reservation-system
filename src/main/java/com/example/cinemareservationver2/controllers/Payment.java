@@ -2,15 +2,20 @@ package com.example.cinemareservationver2.controllers;
 
 import com.example.cinemareservationver2.DatabaseConnection;
 import com.example.cinemareservationver2.EmailSender;
+import com.example.cinemareservationver2.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import javax.swing.*;
 import java.net.URL;
@@ -18,7 +23,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.zip.DataFormatException;
 
 public class Payment implements Initializable {
     @FXML
@@ -33,13 +41,14 @@ public class Payment implements Initializable {
     private Label orderid, moviename, showcasedate, purchaser, ticketprice, ticketquantity, totalprice;
 
     //TODO get variables from Login and Movie classes
-    private String username = "bonniecoder";
+    private int userid = 3;
     private int movieid = 5;
     private int numberOfTickets = 2;
 
     private String firstName, lastName, paymentType, cardFirstDigit, movie;
-    private int total, ticketNumber;
+    private int balance, total, ticketNumber;
     private boolean paymentInfoValid, bool;
+    private boolean toMainPage = true;
     Stage stage;
 
     @Override
@@ -53,30 +62,47 @@ public class Payment implements Initializable {
             paymentType = "uzcard";
             cardVerCode.setVisible(false);
             cardIcon.setVisible(false);
+            toMainPage = false;
         } else if (event.getSource() == btnhumo) {
             paneOrderDetails.toFront();
             showOrderDetails();
             paymentType = "humo";
             cardVerCode.setVisible(false);
             cardIcon.setVisible(false);
+            toMainPage = false;
         } else if (event.getSource() == btnvisa) {
             paneOrderDetails.toFront();
             showOrderDetails();
             paymentType = "visa";
             cardVerCode.setVisible(true);
             cardIcon.setVisible(true);
+            toMainPage = false;
         } else if (event.getSource() == btnms) {
             paneOrderDetails.toFront();
             showOrderDetails();
             paymentType = "mastercard";
             cardVerCode.setVisible(true);
             cardIcon.setVisible(true);
+            toMainPage = false;
         } else if (event.getSource() == btnback) {
-            main_pane.toFront();
+            if(toMainPage) {
+                Node node = (Node) event.getSource();
+                Stage thisStage = (Stage) node.getScene().getWindow();
+                thisStage.hide();
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("main.fxml"));
+                Stage primaryStage = new Stage();
+                Scene scene = new Scene(fxmlLoader.load());
+                primaryStage.initStyle(StageStyle.UNDECORATED);
+                primaryStage.setScene(scene);
+                primaryStage.show();
+            } else {
+                main_pane.toFront();
+            }
             cardHolderName.clear();
             cardNumber.clear();
             cardExpDate.clear();
             cardVerCode.clear();
+            toMainPage = true;
         } else if (event.getSource() == exit_button) {
             stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
             stage.close();
@@ -88,16 +114,16 @@ public class Payment implements Initializable {
     private void showOrderDetails() {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectionDB = connectNow.getConnection();
-        String getOrders = "SELECT * FROM orders WHERE id=(SELECT max(id) FROM orders)";
-        String getMovies = "SELECT * FROM movies WHERE id = " + movieid + "";
-        String getPurchaser = "SELECT * FROM users WHERE username = '" + username + "'";
+        String getOrders = "SELECT * FROM orders WHERE id=(SELECT max(id) FROM orders);";
+        String getMovies = "SELECT * FROM movies WHERE id = " + movieid + ";";
+        String getPurchaser = "SELECT * FROM users WHERE id = '" + userid + "';";
         try {
             Statement statement = connectionDB.createStatement();
             ResultSet orderNumber = statement.executeQuery(getOrders);
             while (orderNumber.next()) {
-                ticketNumber = orderNumber.getInt("id") + 1;
-                orderid.setText(String.valueOf(ticketNumber));
+                ticketNumber = orderNumber.getInt("id");
             }
+            orderid.setText(String.valueOf(ticketNumber + 1));
             ResultSet movies = statement.executeQuery(getMovies);
             while (movies.next()) {
                 movie = movies.getString("name");
@@ -123,7 +149,7 @@ public class Payment implements Initializable {
     private void addOrder() {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectionDB = connectNow.getConnection();
-        String newOrder = "INSERT INTO orders(username, moviename,ticketnumber, totalprice) VALUES ('" + username + "','" + movie + "'," + ticketNumber + "," + total + ")";
+        String newOrder = "INSERT INTO orders(userid, movieid, ticketnumber, totalprice) VALUES ('" + userid + "','" + movieid + "','" + ticketNumber + "','" + total + "')";
         try {
             Statement statement = connectionDB.createStatement();
             statement.executeUpdate(newOrder);
@@ -142,18 +168,36 @@ public class Payment implements Initializable {
         if (paymentInfoValid) {
             if (validCardNumber()) {
                 if (checkForExistance()) {
-                    //Success message
-                    JOptionPane.showMessageDialog(null,
-                            "You successfully booked the ticket!",
-                            "Success",
-                            JOptionPane.ERROR_MESSAGE);
-                    addOrder();
-                    main_pane.toFront();
-                    cardHolderName.clear();
-                    cardNumber.clear();
-                    cardExpDate.clear();
-                    cardVerCode.clear();
-                    EmailSender.sendEmail("bonniemathers99@gmail.com");
+                    DatabaseConnection connectNow = new DatabaseConnection();
+                    Connection connectionDB = connectNow.getConnection();
+                    Statement statement = connectionDB.createStatement();
+                    String getCardBalance = "SELECT * FROM cards WHERE number = " + cardNumber.getText() + ";";
+                    ResultSet cardBalance = statement.executeQuery(getCardBalance);
+                    while (cardBalance.next()) {
+                        balance = cardBalance.getInt("balance");
+                    }
+                    int newBalance = (balance-total);
+                    String updateFunds = "UPDATE cards SET balance = " + newBalance + " WHERE number = " + cardNumber.getText() + ";";
+                    if(total<balance) {
+                        //Success message
+                        statement.executeUpdate(updateFunds);
+                        JOptionPane.showMessageDialog(null,
+                                "You successfully booked the ticket!",
+                                "Success",
+                                JOptionPane.ERROR_MESSAGE);
+                        addOrder();
+                        main_pane.toFront();
+                        cardHolderName.clear();
+                        cardNumber.clear();
+                        cardExpDate.clear();
+                        cardVerCode.clear();
+                        EmailSender.sendEmail("bonniemathers99@gmail.com");
+                    } else {//Error message
+                        JOptionPane.showMessageDialog(null,
+                                "Insufficient funds.",
+                                "Error",
+                                JOptionPane.ERROR_MESSAGE);
+                    }
                 } else {
                     //Error message
                     JOptionPane.showMessageDialog(null,
@@ -176,7 +220,6 @@ public class Payment implements Initializable {
                     JOptionPane.ERROR_MESSAGE);
         }
     }
-
 
     private boolean validCardNumber() {
         boolean bool;
@@ -205,18 +248,22 @@ public class Payment implements Initializable {
                 cardExp = result.getString("exp_date");
                 cardCvc = result.getString("cvc");
             }
-            if (paymentType.equals("uzcard") || paymentType.equals("humo")) {
-                if (cardHolder.equalsIgnoreCase(cardHolderName.getText())&&cardExp.equals(cardExpDate.getText())) {
-                    bool = true;
-                } else {
-                    bool = false;
+            if (cardHolder != null) {
+                if (paymentType.equals("uzcard") || paymentType.equals("humo")) {
+                    if (cardHolder.equalsIgnoreCase(cardHolderName.getText())&&cardExp.equals(cardExpDate.getText())) {
+                        bool = true;
+                    } else {
+                        bool = false;
+                    }
+                } else if (paymentType.equals("visa") || paymentType.equals("mastercard")) {
+                    if (cardHolder.equals(cardHolderName.getText())&&cardExp.equals(cardExpDate.getText())&&cardCvc.equals(cardVerCode.getText())) {
+                        bool = true;
+                    } else {
+                        bool = false;
+                    }
                 }
-            } else if (paymentType.equals("visa") || paymentType.equals("mastercard")) {
-                if (cardHolder.equals(cardHolderName.getText())&&cardExp.equals(cardExpDate.getText())&&cardCvc.equals(cardVerCode.getText())) {
-                    bool = true;
-                } else {
-                    bool = false;
-                }
+            } else {
+                bool = false;
             }
         } catch (SQLException e) {
             e.printStackTrace();

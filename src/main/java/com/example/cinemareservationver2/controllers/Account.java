@@ -78,7 +78,15 @@ public class Account implements Initializable {
 
     @FXML
     void savePassword(ActionEvent event) {
-        save(newPassword, "password");
+        if(newPassword.getText().equals(newPassConf.getText())) {
+            save(newPassword, "password");
+            newPassConf.clear();
+        } else {
+            JOptionPane.showMessageDialog(null,
+                    "Password mismatch.",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     @FXML
