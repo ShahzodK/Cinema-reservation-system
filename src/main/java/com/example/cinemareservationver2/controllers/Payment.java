@@ -1,8 +1,6 @@
 package com.example.cinemareservationver2.controllers;
 
-import com.example.cinemareservationver2.DatabaseConnection;
-import com.example.cinemareservationver2.EmailSender;
-import com.example.cinemareservationver2.HelloApplication;
+import com.example.cinemareservationver2.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -112,25 +110,31 @@ public class Payment implements Initializable {
     }
 
     private void showOrderDetails() {
+        String chooose=FilmPage.getChoosenfilmname();
+        System.out.println(chooose+"kkkk");
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectionDB = connectNow.getConnection();
-        String getOrders = "SELECT * FROM orders WHERE id=(SELECT max(id) FROM orders);";
+        String getOrders = "SELECT * FROM movies WHERE name = '"+chooose+"';";
         String getMovies = "SELECT * FROM movies WHERE id = " + movieid + ";";
-        String getPurchaser = "SELECT * FROM users WHERE id = '" + userid + "';";
+        String getPurchaser = "SELECT * FROM users WHERE username = '" + Login.username + "';";
         try {
             Statement statement = connectionDB.createStatement();
             ResultSet orderNumber = statement.executeQuery(getOrders);
             while (orderNumber.next()) {
                 ticketNumber = orderNumber.getInt("id");
+                movie = orderNumber.getString("name");
+                ticketprice.setText(orderNumber.getString("price"));
+                total = orderNumber.getInt("price") * numberOfTickets;
+                totalprice.setText(String.valueOf(total));
             }
             orderid.setText(String.valueOf(ticketNumber + 1));
             ResultSet movies = statement.executeQuery(getMovies);
-            while (movies.next()) {
-                movie = movies.getString("name");
-                ticketprice.setText(movies.getString("price"));
-                total = movies.getInt("price") * numberOfTickets;
-                totalprice.setText(String.valueOf(total));
-            }
+//            while (movies.next()) {
+//                movie = movies.getString("name");
+//                ticketprice.setText(movies.getString("price"));
+//                total = movies.getInt("price") * numberOfTickets;
+//                totalprice.setText(String.valueOf(total));
+//            }
             ResultSet purchaserName = statement.executeQuery(getPurchaser);
             while (purchaserName.next()) {
                 firstName = purchaserName.getString("firstname");
@@ -147,15 +151,19 @@ public class Payment implements Initializable {
     }
 
     private void addOrder() {
+        String array[][]=FilmPage.arraydataforpayment;
+        int numberofarray= array.length;
+        System.out.println(array[1][2]);
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectionDB = connectNow.getConnection();
-        String newOrder = "INSERT INTO orders(userid, movieid, ticketnumber, totalprice) VALUES ('" + userid + "','" + movieid + "','" + ticketNumber + "','" + total + "')";
+        for(int i=0;i<numberofarray;i++){
+        String newOrder = "INSERT INTO orders(username, moviename, ticketid) VALUES ('" + Login.username + "','" + FilmPage.getChoosenfilmname() + "','" + array[i][2] + "')";
         try {
             Statement statement = connectionDB.createStatement();
             statement.executeUpdate(newOrder);
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }}
     }
 
     private void validate() throws Exception {

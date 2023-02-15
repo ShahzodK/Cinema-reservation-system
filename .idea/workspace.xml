@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c413c659-d93b-4926-b474-879f2c74209e" name="Changes" comment="Film Page complete" />
+    <list default="true" id="c413c659-d93b-4926-b474-879f2c74209e" name="Changes" comment="Payment changes 1.0">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/controllers/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/controllers/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/controllers/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinemareservationver2/controllers/Search.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cinemareservationver2/views/Payment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemareservationver2/views/Payment.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/cinemareservationver2/views/search.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/cinemareservationver2/views/search.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,21 +37,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Leopard/IdeaProjects/new",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Leopard/IdeaProjects/new&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -59,7 +65,8 @@
       <workItem from="1676396222387" duration="215000" />
       <workItem from="1676398940740" duration="124000" />
       <workItem from="1676440128996" duration="453000" />
-      <workItem from="1676443382065" duration="5509000" />
+      <workItem from="1676443382065" duration="10955000" />
+      <workItem from="1676487815384" duration="447000" />
     </task>
     <task id="LOCAL-00001" summary="Changes 2.0">
       <created>1676376174788</created>
@@ -75,7 +82,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676465192129</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Payment changes 1.0">
+      <created>1676465540062</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1676465540062</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -84,6 +98,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changes 2.0" />
     <MESSAGE value="Film Page complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="Film Page complete" />
+    <MESSAGE value="Payment changes 1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Payment changes 1.0" />
   </component>
 </project>
